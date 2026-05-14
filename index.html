@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elizabeth Segametse Brits Trading | Premium Catering Northern Cape</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,600&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --cream: #fdf9f3;
+      --cream-warm: #f8f0e3;
+      --cream-deep: #f0e4cc;
+      --beige: #e2cead;
+      --warm-tan: #c8a97a;
+      --warm-brown: #b8855a;
+      --mid-brown: #8f5e38;
+      --dark-brown: #4d2e14;
+      --espresso: #221408;
+      --gold: #c9942a;
+      --gold-light: #e8ba60;
+      --smoke: rgba(253, 248, 240, 0.85);
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--espresso);
+      overflow-x: hidden;
+    }
+
+    /* ═══ CUSTOM CURSOR ═══ */
+    .cursor-dot { width: 7px; height: 7px; background: var(--gold); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); }
+    .cursor-ring { width: 32px; height: 32px; border: 1px solid rgba(185,133,90,0.5); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform 0.18s ease, width 0.3s, height 0.3s, opacity 0.3s; opacity: 0.7; }
+    .cursor-ring.hovered { width: 52px; height: 52px; opacity: 0.25; border-color: var(--gold); }
+
+    /* ═══ NAVBAR ═══ */
+    .navbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      padding: 1.4rem 0;
+      background: rgba(253,249,243,0.7);
+      backdrop-filter: blur(22px) saturate(160%);
+      -webkit-backdrop-filter: blur(22px) saturate(160%);
+      border-bottom: 1px solid rgba(200,169,122,0.18);
+      transition: all 0.4s ease;
+    }
+    .navbar.scrolled {
+      padding: 0.85rem 0;
+      background: rgba(253,249,243,0.94);
+      box-shadow: 0 2px 40px rgba(77,46,20,0.08);
+    }
+    .nav-inner { max-width: 1320px; margin: 0 auto; padding: 0 2.5rem; display: flex; align-items: center; justify-content: space-between; }
+    .nav-brand {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.4rem; font-weight: 700; color: var(--dark-brown);
+      text-decoration: none; letter-spacing: 0.01em;
+      display: flex; align-items: center; gap: 0.7rem;
+    }
+    .nav-brand-mark {
+      width: 38px; height: 38px;
+      background: linear-gradient(135deg, var(--warm-brown), var(--gold));
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      font-size: 1.1rem; box-shadow: 0 4px 12px rgba(185,133,90,0.35);
+    }
+    .nav-links { display: flex; list-style: none; gap: 2.8rem; align-items: center; }
+    .nav-links a {
+      font-family: 'DM Sans', sans-serif;
+      font-size: 0.8rem; font-weight: 500; color: var(--mid-brown);
+      text-decoration: none; letter-spacing: 0.1em; text-transform: uppercase;
+      position: relative; transition: color 0.3s;
+    }
+    .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.35s ease; }
+    .nav-links a:hover { color: var(--dark-brown); }
+    .nav-links a:hover::after { width: 100%; }
+    .nav-cta {
+      background: var(--dark-brown) !important; color: var(--cream) !important;
+      padding: 0.6rem 1.5rem; border-radius: 50px;
+      text-transform: uppercase !important; font-size: 0.75rem !important;
+      transition: background 0.3s, transform 0.2s !important; letter-spacing: 0.1em !important;
+    }
+    .nav-cta:hover { background: var(--warm-brown) !important; transform: translateY(-1px); }
+    .nav-cta::after { display: none !important; }
+    .nav-hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+    .nav-hamburger span { display: block; width: 22px; height: 1.5px; background: var(--dark-brown); transition: all 0.3s; }
+
+    /* ═══ HERO ═══ */
+    .hero {
+      position: relative; width: 100%; height: 100vh; min-height: 750px;
+      overflow: hidden; display: flex; align-items: center; justify-content: center;
+    }
+
+    /* Background slides */
+    .hero-slides { position: absolute; inset: 0; z-index: 0; }
+    .hero-slide {
+      position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      opacity: 0; transform: scale(1.06);
+      transition: opacity 2.2s cubic-bezier(0.4,0,0.2,1), transform 8s ease;
+    }
+    .hero-slide.active { opacity: 1; transform: scale(1); }
+    .hero-slide:nth-child(1) { background-image: url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1920'); }
+.hero-slide:nth-child(2) { background-image: url('./assets/chef.png'); }
+    .hero-slide:nth-child(3) { background-image: url('./assets/cater4.png'); }
+    .hero-slide:nth-child(4) { background-image: url('./assets/cater3.png'); }
+
+    /* Veil — warm cinematic tone */
+    .hero-veil {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(
+        to bottom,
+        rgba(34,20,8,0.55) 0%,
+        rgba(34,20,8,0.35) 40%,
+        rgba(34,20,8,0.55) 100%
+      );
+    }
+    .hero-fade-bottom {
+      position: absolute; bottom: 0; left: 0; right: 0; height: 280px; z-index: 2;
+      background: linear-gradient(to top, var(--cream) 0%, transparent 100%);
+    }
+
+    /* ── 3D FLOATING PLATES (CSS art) ── */
+    .plate-float {
+      position: absolute; z-index: 2;
+      pointer-events: none;
+    }
+    .plate {
+      width: 100px; height: 100px;
+      border-radius: 50%;
+      background: radial-gradient(ellipse at 35% 30%, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.08) 50%, transparent 70%);
+      border: 2px solid rgba(255,255,255,0.18);
+      box-shadow:
+        0 0 0 8px rgba(255,255,255,0.04),
+        0 0 0 18px rgba(255,255,255,0.02),
+        0 20px 60px rgba(0,0,0,0.3),
+        inset 0 1px 0 rgba(255,255,255,0.3);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2.2rem;
+      animation: floatPlate 6s ease-in-out infinite;
+      backdrop-filter: blur(4px);
+    }
+    .plate-float:nth-child(1) { top: 15%; left: 5%; }
+    .plate-float:nth-child(1) .plate { width: 80px; height: 80px; font-size: 1.8rem; animation-delay: 0s; animation-duration: 7s; }
+    .plate-float:nth-child(2) { top: 20%; right: 7%; }
+    .plate-float:nth-child(2) .plate { width: 110px; height: 110px; font-size: 2.4rem; animation-delay: -2s; animation-duration: 8s; }
+    .plate-float:nth-child(3) { bottom: 28%; left: 8%; }
+    .plate-float:nth-child(3) .plate { width: 70px; height: 70px; font-size: 1.5rem; animation-delay: -4s; animation-duration: 6s; }
+    .plate-float:nth-child(4) { bottom: 30%; right: 5%; }
+    .plate-float:nth-child(4) .plate { width: 90px; height: 90px; font-size: 2rem; animation-delay: -1s; animation-duration: 9s; }
+
+    @keyframes floatPlate {
+      0%, 100% { transform: translateY(0) rotate(0deg); }
+      25% { transform: translateY(-16px) rotate(3deg); }
+      50% { transform: translateY(-8px) rotate(-2deg); }
+      75% { transform: translateY(-22px) rotate(1deg); }
+    }
+
+    /* ── STEAM PARTICLES (CSS SVG-free) ── */
+    .steam-wrap {
+      position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%);
+      width: 200px; height: 80px; pointer-events: none; z-index: 5;
+    }
+    .steam-particle {
+      position: absolute;
+      bottom: 0;
+      width: 3px; height: 30px;
+      background: linear-gradient(to top, rgba(255,255,255,0.6), transparent);
+      border-radius: 50px;
+      animation: steamRise 2.5s ease-in-out infinite;
+      filter: blur(2px);
+    }
+    .steam-particle:nth-child(1) { left: 30%; animation-delay: 0s; }
+    .steam-particle:nth-child(2) { left: 50%; height: 40px; animation-delay: 0.4s; animation-duration: 3s; }
+    .steam-particle:nth-child(3) { left: 70%; animation-delay: 0.8s; animation-duration: 2.2s; }
+    .steam-particle:nth-child(4) { left: 20%; height: 25px; animation-delay: 1.2s; animation-duration: 2.8s; }
+    .steam-particle:nth-child(5) { left: 80%; height: 35px; animation-delay: 0.6s; }
+
+    @keyframes steamRise {
+      0% { opacity: 0; transform: translateY(0) scaleX(1); }
+      20% { opacity: 0.7; }
+      80% { opacity: 0.2; }
+      100% { opacity: 0; transform: translateY(-60px) scaleX(2.5) translateX(10px); }
+    }
+
+    /* ── HERO CONTENT (centered) ── */
+    .hero-content {
+      position: relative; z-index: 3;
+      text-align: center;
+      max-width: 900px;
+      padding: 0 2rem;
+    }
+    .hero-plate-serve {
+      position: relative;
+      display: inline-block;
+      margin-bottom: 2rem;
+    }
+    .hero-plate-icon {
+      width: 80px; height: 80px;
+      background: rgba(255,255,255,0.12);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 2rem; margin: 0 auto;
+      box-shadow: 0 0 0 12px rgba(255,255,255,0.04), 0 0 0 24px rgba(255,255,255,0.02);
+      animation: plateServe 1s cubic-bezier(0.23, 1, 0.32, 1) 0.1s both;
+    }
+    @keyframes plateServe {
+      0% { opacity: 0; transform: translateY(60px) scale(0.7); }
+      60% { transform: translateY(-8px) scale(1.05); }
+      100% { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    .hero-eyebrow {
+      display: inline-flex; align-items: center; gap: 0.7rem;
+      font-size: 0.72rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold-light);
+      background: rgba(201,148,42,0.15); border: 1px solid rgba(201,148,42,0.3);
+      padding: 0.45rem 1.2rem; border-radius: 50px;
+      margin-bottom: 1.8rem; display: inline-flex;
+      opacity: 0; animation: riseSmoke 1s ease 0.6s forwards;
+    }
+    .eyebrow-dot { width: 5px; height: 5px; background: var(--gold-light); border-radius: 50%; animation: pulse 2s infinite; }
+    @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(1.5)} }
+
+    /* The hero title — rises like a hot plate being served */
+    .hero-title-wrap {
+      position: relative;
+      margin-bottom: 1.8rem;
+    }
+    .hero-title {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3.4rem, 7vw, 6.2rem);
+      font-weight: 900;
+      line-height: 1.0;
+      letter-spacing: -0.02em;
+      color: #fff;
+      opacity: 0;
+      animation: riseFromPlate 1.4s cubic-bezier(0.16, 1, 0.3, 1) 0.5s forwards;
+    }
+    .hero-title em {
+      font-style: italic;
+      background: linear-gradient(135deg, #f5d080, var(--gold-light), #d4a055);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+      display: block;
+    }
+
+    @keyframes riseFromPlate {
+      0% {
+        opacity: 0;
+        transform: translateY(80px) scale(0.92);
+        filter: blur(12px);
+        text-shadow: 0 0 0 rgba(255,255,255,0);
+      }
+      30% {
+        opacity: 0.6;
+        transform: translateY(20px) scale(0.97);
+        filter: blur(4px);
+      }
+      65% {
+        opacity: 0.9;
+        transform: translateY(-6px) scale(1.01);
+        filter: blur(1px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+        filter: blur(0);
+      }
+    }
+
+    @keyframes riseSmoke {
+      0% { opacity: 0; transform: translateY(30px); filter: blur(6px); }
+      100% { opacity: 1; transform: translateY(0); filter: blur(0); }
+    }
+
+    .hero-sub {
+      font-size: 1.1rem; font-weight: 300; color: rgba(255,255,255,0.72);
+      line-height: 1.75; max-width: 540px; margin: 0 auto 2.8rem;
+      opacity: 0; animation: riseSmoke 1s ease 1.2s forwards;
+    }
+    .hero-actions {
+      display: flex; justify-content: center; gap: 1.2rem; align-items: center;
+      opacity: 0; animation: riseSmoke 1s ease 1.5s forwards;
+    }
+    .btn-hero-primary {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      padding: 1rem 2.2rem;
+      background: linear-gradient(135deg, var(--warm-brown), var(--gold));
+      color: #fff; font-size: 0.88rem; font-weight: 600; letter-spacing: 0.06em;
+      border-radius: 50px; text-decoration: none;
+      box-shadow: 0 8px 32px rgba(185,133,90,0.45);
+      transition: all 0.35s;
+    }
+    .btn-hero-primary:hover { transform: translateY(-3px); box-shadow: 0 16px 40px rgba(185,133,90,0.55); }
+    .btn-hero-ghost {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      padding: 1rem 2.2rem;
+      background: rgba(255,252,244,0.1); backdrop-filter: blur(12px);
+      color: rgba(255,255,255,0.88); font-size: 0.88rem; font-weight: 500;
+      border-radius: 50px; text-decoration: none;
+      border: 1px solid rgba(255,255,255,0.22); transition: all 0.3s;
+    }
+    .btn-hero-ghost:hover { background: rgba(255,255,255,0.2); transform: translateY(-2px); }
+
+    /* Slide dots */
+    .hero-indicators {
+      position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
+      z-index: 4; display: flex; gap: 8px;
+    }
+    .hi-dot { width: 22px; height: 2.5px; background: rgba(255,255,255,0.25); border-radius: 2px; cursor: pointer; transition: all 0.4s; }
+    .hi-dot.active { width: 42px; background: var(--gold-light); }
+
+    /* Scroll line */
+    .scroll-hint {
+      position: absolute; bottom: 2.8rem; right: 3rem; z-index: 4;
+      display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
+      opacity: 0; animation: riseSmoke 1s ease 2s forwards;
+    }
+    .scroll-hint span { font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.45); writing-mode: vertical-rl; }
+    .scroll-line { width: 1px; height: 48px; background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent); animation: scrollAnim 2s infinite; }
+    @keyframes scrollAnim { 0%,100%{transform:scaleY(1);opacity:1} 50%{transform:scaleY(0.3);opacity:0.3} }
+
+    /* ═══ KITCHEN UTENSILS DIVIDER ═══ */
+    .utensil-divider {
+      width: 100%;
+      padding: 2.2rem 0;
+      background: linear-gradient(to right, var(--cream), var(--cream-warm), var(--cream));
+      display: flex; align-items: center; justify-content: center;
+      gap: 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .utensil-divider::before,
+    .utensil-divider::after {
+      content: '';
+      position: absolute; top: 50%; width: 22%;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--beige));
+      transform: translateY(-50%);
+    }
+    .utensil-divider::before { left: 0; }
+    .utensil-divider::after { right: 0; background: linear-gradient(to left, transparent, var(--beige)); }
+    .ud-inner {
+      display: flex; align-items: center; gap: 1.8rem;
+      padding: 0 2rem;
+    }
+    .ud-item {
+      display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
+      transition: all 0.35s;
+      cursor: default;
+    }
+    .ud-item:hover { transform: translateY(-5px) rotate(5deg); }
+    .ud-icon {
+      font-size: 1.6rem;
+      filter: drop-shadow(0 2px 4px rgba(143,94,56,0.2));
+    }
+    .ud-label { font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--warm-tan); font-weight: 500; }
+    .ud-line { width: 1px; height: 28px; background: linear-gradient(to bottom, transparent, var(--beige), transparent); }
+
+    /* ═══ SECTIONS ═══ */
+    .section { padding: 8rem 0; max-width: 1320px; margin: 0 auto; padding-left: 2.5rem; padding-right: 2.5rem; }
+    .section-full { padding: 8rem 0; }
+    .section-inner { max-width: 1320px; margin: 0 auto; padding: 0 2.5rem; }
+
+    .tag { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--warm-brown); margin-bottom: 0.8rem; }
+    .tag-line { width: 24px; height: 1px; background: var(--warm-brown); }
+
+    /* Typewriter headings */
+    .section-heading {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.4rem, 4.5vw, 4rem);
+      font-weight: 700; color: var(--espresso); line-height: 1.08; margin-bottom: 1.5rem;
+    }
+    .section-heading em { font-style: italic; color: var(--warm-brown); }
+    .typewriter { border-right: 2px solid var(--gold); animation: blink 0.75s step-end infinite; }
+    @keyframes blink { 0%,100%{border-color:var(--gold)} 50%{border-color:transparent} }
+
+    /* ═══ ABOUT ═══ */
+    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .about-img-wrap { position: relative; }
+    .about-img { width: 100%; aspect-ratio: 4/5; object-fit: cover; border-radius: 32px; display: block; box-shadow: 0 32px 80px rgba(77,46,20,0.18); }
+    .about-img-badge { position: absolute; bottom: -1.5rem; right: -1.5rem; background: var(--dark-brown); border-radius: 22px; padding: 1.6rem; text-align: center; box-shadow: 0 16px 44px rgba(34,20,8,0.3); }
+    .aib-num { font-family: 'Playfair Display', serif; font-size: 2.8rem; font-weight: 700; color: var(--gold-light); line-height: 1; }
+    .aib-label { font-size: 0.65rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(253,249,243,0.6); margin-top: 0.3rem; }
+    .about-accent-img { position: absolute; top: -1.5rem; left: -1.5rem; width: 115px; height: 115px; object-fit: cover; border-radius: 18px; border: 4px solid var(--cream); box-shadow: 0 8px 28px rgba(34,20,8,0.18); }
+    .about-body { font-family: 'Lora', serif; font-size: 1.05rem; color: #6b4830; line-height: 1.9; }
+    .about-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-top: 2.5rem; }
+    .about-stat { background: linear-gradient(135deg, var(--cream), var(--cream-deep)); border: 1px solid var(--beige); border-radius: 18px; padding: 1.4rem; transition: all 0.4s; }
+    .about-stat:hover { transform: translateY(-5px); box-shadow: 0 14px 36px rgba(184,133,90,0.14); border-color: var(--warm-tan); }
+    .as-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--dark-brown); }
+    .as-label { font-size: 0.78rem; color: var(--mid-brown); margin-top: 0.2rem; }
+    .about-badges { display: flex; gap: 0.7rem; flex-wrap: wrap; margin-top: 2rem; }
+    .badge-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.5rem 1.1rem; background: var(--cream-warm); border: 1px solid var(--beige); border-radius: 50px; font-size: 0.78rem; font-weight: 500; color: var(--dark-brown); transition: all 0.3s; }
+    .badge-pill:hover { background: var(--dark-brown); color: var(--cream); border-color: var(--dark-brown); transform: translateY(-2px); }
+
+    /* ═══ SERVICES ═══ */
+    .services-bg { background: linear-gradient(155deg, var(--cream-warm) 0%, var(--cream-deep) 50%, #e8d8be 100%); }
+    .services-header { text-align: center; max-width: 640px; margin: 0 auto 4.5rem; }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .service-card {
+      background: rgba(253,249,243,0.75);
+      backdrop-filter: blur(18px) saturate(140%);
+      -webkit-backdrop-filter: blur(18px) saturate(140%);
+      border: 1px solid rgba(226,206,173,0.7);
+      border-radius: 28px; padding: 2.5rem 2rem;
+      transition: all 0.5s cubic-bezier(0.23,1,0.32,1);
+      position: relative; overflow: hidden; cursor: default;
+    }
+    .service-card::before {
+      content: ''; position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--warm-brown), var(--gold));
+      opacity: 0; transition: opacity 0.5s; border-radius: inherit;
+    }
+    .service-card:hover { transform: translateY(-12px) scale(1.02); box-shadow: 0 32px 64px rgba(77,46,20,0.18); }
+    .service-card:hover::before { opacity: 1; }
+    .service-card * { position: relative; z-index: 1; }
+    .service-card:hover .sc-icon-wrap { background: rgba(255,255,255,0.2); }
+    .service-card:hover .sc-title,
+    .service-card:hover .sc-desc,
+    .service-card:hover .sc-tag { color: #fff !important; }
+    .sc-icon-wrap { width: 58px; height: 58px; background: var(--cream-deep); border-radius: 18px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 1.6rem; transition: background 0.3s; }
+    .sc-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; color: var(--dark-brown); margin-bottom: 0.8rem; transition: color 0.3s; }
+    .sc-desc { font-size: 0.88rem; color: var(--mid-brown); line-height: 1.75; transition: color 0.3s; }
+    .sc-tag { display: inline-block; margin-top: 1.4rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm-brown); transition: color 0.3s; }
+    .service-card-wide { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; padding: 2.5rem; }
+
+    /* ═══ TRACK RECORD ═══ */
+    .track-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+    .track-card { background: #fff; border: 1px solid var(--beige); border-radius: 24px; padding: 2.5rem; transition: all 0.4s; position: relative; overflow: hidden; }
+    .track-card::after { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(to bottom, var(--warm-brown), var(--gold)); transition: width 0.4s; }
+    .track-card:hover { box-shadow: 0 24px 56px rgba(77,46,20,0.10); transform: translateY(-6px); }
+    .track-card:hover::after { width: 7px; }
+    .tc-icon { font-size: 2rem; margin-bottom: 1.2rem; }
+    .tc-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--dark-brown); margin-bottom: 1rem; }
+    .tc-body { font-size: 0.9rem; color: var(--mid-brown); line-height: 1.82; }
+    .tc-quote { margin-top: 1.4rem; padding: 1rem 1.3rem; background: var(--cream-warm); border-radius: 12px; border-left: 3px solid var(--gold); font-family: 'Lora', serif; font-size: 0.88rem; font-style: italic; color: #6b4830; line-height: 1.75; }
+    .tc-clients { display: flex; flex-direction: column; gap: 0.8rem; margin-top: 1rem; }
+    .tc-client-row { display: flex; align-items: center; gap: 1rem; padding: 0.9rem 1rem; background: var(--cream); border-radius: 12px; font-size: 0.88rem; transition: all 0.25s; }
+    .tc-client-row:hover { background: var(--cream-deep); transform: translateX(5px); }
+    .tc-client-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex-shrink: 0; }
+    .tc-client-name { font-weight: 600; color: var(--dark-brown); }
+    .tc-client-desc { font-size: 0.76rem; color: var(--mid-brown); }
+    .media-strip { margin-top: 3rem; background: linear-gradient(135deg, var(--dark-brown), #3a2010); border-radius: 24px; padding: 2.5rem 3rem; display: flex; align-items: center; gap: 3rem; }
+    .media-icon { font-size: 2.8rem; flex-shrink: 0; }
+    .media-label { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); font-weight: 600; margin-bottom: 0.5rem; }
+    .media-headline { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-style: italic; color: #fff; line-height: 1.45; }
+    .media-source { font-size: 0.78rem; color: rgba(253,249,243,0.5); margin-top: 0.8rem; }
+
+    /* ═══ KITCHEN SECTION ═══ */
+    .kitchen-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .kitchen-features { display: flex; flex-direction: column; gap: 1.4rem; margin-top: 2.5rem; }
+    .kf-item { display: flex; gap: 1.2rem; align-items: flex-start; padding: 1.3rem; background: rgba(253,249,243,0.85); backdrop-filter: blur(8px); border: 1px solid var(--beige); border-radius: 18px; transition: all 0.35s; }
+    .kf-item:hover { transform: translateX(8px); border-color: var(--warm-tan); box-shadow: 0 8px 28px rgba(184,133,90,0.12); }
+    .kf-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .kf-title { font-weight: 600; font-size: 0.95rem; color: var(--dark-brown); margin-bottom: 0.2rem; }
+    .kf-desc { font-size: 0.84rem; color: var(--mid-brown); line-height: 1.65; }
+    .kitchen-imgs { position: relative; }
+    .ki-main { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 32px; display: block; box-shadow: 0 40px 80px rgba(77,46,20,0.2); }
+    .ki-float { position: absolute; bottom: 1.5rem; left: -2.5rem; width: 46%; aspect-ratio: 1; object-fit: cover; border-radius: 22px; border: 4px solid var(--cream); box-shadow: 0 16px 48px rgba(34,20,8,0.22); }
+
+    /* ═══ CONTACT ═══ */
+    .contact-section {
+      background:
+        linear-gradient(to bottom, rgba(253,249,243,0.96) 0%, rgba(248,240,227,0.92) 100%),
+        url('./assets/contactimg.png') center / cover no-repeat;
+    }
+    .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; }
+    .contact-details { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 2.5rem; }
+    .cd-item { display: flex; gap: 1.2rem; align-items: center; padding: 1.2rem 1.4rem; background: rgba(253,249,243,0.8); backdrop-filter: blur(12px); border: 1px solid var(--beige); border-radius: 16px; transition: all 0.3s; }
+    .cd-item:hover { transform: translateX(6px); border-color: var(--warm-tan); box-shadow: 0 8px 24px rgba(184,133,90,0.12); }
+    .cd-icon { width: 46px; height: 46px; background: linear-gradient(135deg, var(--warm-brown), var(--gold)); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .cd-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--mid-brown); }
+    .cd-value { font-size: 0.94rem; font-weight: 500; color: var(--dark-brown); margin-top: 0.1rem; }
+    .contact-form-wrap { background: rgba(253,249,243,0.6); backdrop-filter: blur(28px) saturate(160%); -webkit-backdrop-filter: blur(28px) saturate(160%); border: 1px solid rgba(226,206,173,0.75); border-radius: 32px; padding: 3rem; box-shadow: 0 24px 72px rgba(77,46,20,0.1); }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-label { display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--mid-brown); margin-bottom: 0.6rem; }
+    .form-input { width: 100%; padding: 0.95rem 1.3rem; background: rgba(253,249,243,0.85); border: 1px solid var(--beige); border-radius: 14px; font-family: 'DM Sans', sans-serif; font-size: 0.92rem; color: var(--espresso); outline: none; transition: all 0.3s; }
+    .form-input:focus { border-color: var(--warm-tan); background: #fff; box-shadow: 0 0 0 3px rgba(200,169,122,0.14); }
+    .form-input::placeholder { color: rgba(77,46,20,0.3); }
+    textarea.form-input { resize: none; }
+    .btn-submit { width: 100%; padding: 1.1rem; background: linear-gradient(135deg, var(--dark-brown), var(--mid-brown)); color: #fff; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.07em; border: none; border-radius: 14px; cursor: pointer; transition: all 0.35s; margin-top: 0.5rem; }
+    .btn-submit:hover { background: linear-gradient(135deg, var(--warm-brown), var(--gold)); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(184,133,90,0.32); }
+
+    /* ═══ FOOTER WITH BACKGROUND IMAGE ═══ */
+    .footer {
+      position: relative;
+      background:
+        linear-gradient(to bottom, rgba(34,20,8,0.94) 0%, rgba(34,20,8,0.98) 100%),
+        url('./assets/footerinmg.png') center / cover no-repeat;
+      padding: 5rem 2.5rem 2.5rem;
+    }
+    .footer-inner { max-width: 1320px; margin: 0 auto; }
+    .footer-top { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 3rem; padding-bottom: 3.5rem; border-bottom: 1px solid rgba(253,249,243,0.1); }
+    .footer-brand-name { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--cream); margin-bottom: 1rem; }
+    .footer-tagline { font-family: 'Lora', serif; font-size: 0.9rem; color: rgba(253,249,243,0.5); line-height: 1.75; max-width: 280px; font-style: italic; }
+    .footer-col-title { font-size: 0.68rem; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); margin-bottom: 1.2rem; }
+    .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
+    .footer-links a { font-size: 0.88rem; color: rgba(253,249,243,0.5); text-decoration: none; transition: color 0.25s; }
+    .footer-links a:hover { color: var(--cream); }
+    .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 2.5rem; font-size: 0.76rem; color: rgba(253,249,243,0.3); }
+    .bee-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.4rem 1rem; background: rgba(201,148,42,0.12); border: 1px solid rgba(201,148,42,0.25); border-radius: 50px; color: var(--gold-light); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; }
+
+    /* ═══ SCROLL REVEAL ═══ */
+    .reveal { opacity: 0; transform: translateY(44px); transition: opacity 0.9s cubic-bezier(0.23,1,0.32,1), transform 0.9s cubic-bezier(0.23,1,0.32,1); }
+    .reveal.visible { opacity: 1; transform: translateY(0); }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.22s; }
+    .reveal-delay-3 { transition-delay: 0.38s; }
+    .reveal-delay-4 { transition-delay: 0.52s; }
+
+    /* ═══ RESPONSIVE ═══ */
+    @media (max-width: 900px) {
+      .hero-title { font-size: clamp(2.8rem, 9vw, 4rem); }
+      .about-grid, .kitchen-grid, .contact-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .service-card-wide { grid-column: span 1; grid-template-columns: 1fr; }
+      .track-grid { grid-template-columns: 1fr; }
+      .footer-top { grid-template-columns: 1fr; gap: 2rem; }
+      .footer-bottom { flex-direction: column; gap: 0.8rem; text-align: center; }
+      .about-accent-img { display: none; }
+      .ki-float { display: none; }
+      .about-img-badge { right: 0; bottom: 0; }
+      .nav-links { display: none; }
+      .nav-hamburger { display: flex; }
+      .media-strip { flex-direction: column; gap: 1.5rem; }
+      .plate-float { display: none; }
+      .ud-inner { gap: 1rem; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#home" class="nav-brand">
+      <div class="nav-brand-mark">🍽</div>
+      Elizabeth S. Brits
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="contact.html" class="nav-cta">Get a Quote</a></li>
+    </ul>
+    <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="home" class="hero">
+  <div class="hero-slides">
+    <div class="hero-slide active"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+  </div>
+  <div class="hero-veil"></div>
+  <div class="hero-fade-bottom"></div>
+
+  <!-- 3D floating plate decorations -->
+  <div class="plate-float"><div class="plate">🍽</div></div>
+  <div class="plate-float"><div class="plate">🥘</div></div>
+  <div class="plate-float"><div class="plate">🍴</div></div>
+  <div class="plate-float"><div class="plate">🥗</div></div>
+
+  <div class="hero-content">
+    <!-- Serving plate animation with steam -->
+    <div class="hero-plate-serve">
+      <div class="steam-wrap">
+        <div class="steam-particle"></div>
+        <div class="steam-particle"></div>
+        <div class="steam-particle"></div>
+        <div class="steam-particle"></div>
+        <div class="steam-particle"></div>
+      </div>
+      <div class="hero-plate-icon">🍽</div>
+    </div>
+
+    <div class="hero-eyebrow">
+      <div class="eyebrow-dot"></div>
+      BEE Level 1 · Est. 2012 · Northern Cape
+    </div>
+
+    <div class="hero-title-wrap">
+      <h1 class="hero-title">
+        Beyond the Plate,<br>
+        <em>Extraordinary Moments</em>
+      </h1>
+    </div>
+
+    <p class="hero-sub">Premium catering for government, mines & corporates across the Northern Cape — crafted with passion, served with precision and heart.</p>
+
+    <div class="hero-actions">
+      <a href="#contact" class="btn-hero-primary">Request a Quote →</a>
+      <a href="#services" class="btn-hero-ghost">Explore Services</a>
+    </div>
+  </div>
+
+  <div class="hero-indicators">
+    <div class="hi-dot active" onclick="goToSlide(0)"></div>
+    <div class="hi-dot" onclick="goToSlide(1)"></div>
+    <div class="hi-dot" onclick="goToSlide(2)"></div>
+    <div class="hi-dot" onclick="goToSlide(3)"></div>
+  </div>
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ═══ KITCHEN UTENSILS DIVIDER ═══ -->
+<div class="utensil-divider">
+  <div class="ud-inner">
+    <div class="ud-item"><div class="ud-icon">🔪</div><div class="ud-label">Chef's Knife</div></div>
+    <div class="ud-line"></div>
+    <div class="ud-item"><div class="ud-icon">🥄</div><div class="ud-label">Ladle</div></div>
+    <div class="ud-line"></div>
+    <div class="ud-item"><div class="ud-icon">🍳</div><div class="ud-label">Cookware</div></div>
+    <div class="ud-line"></div>
+    <div class="ud-item"><div class="ud-icon">🧂</div><div class="ud-label">Seasoned</div></div>
+    <div class="ud-line"></div>
+    <div class="ud-item"><div class="ud-icon">🫕</div><div class="ud-label">Slow-Cooked</div></div>
+    <div class="ud-line"></div>
+    <div class="ud-item"><div class="ud-icon">🥘</div><div class="ud-label">From Scratch</div></div>
+    <div class="ud-line"></div>
+    <div class="ud-item"><div class="ud-icon">🌿</div><div class="ud-label">Fresh & Local</div></div>
+    <div class="ud-line"></div>
+    <div class="ud-item"><div class="ud-icon">🍽</div><div class="ud-label">Plated Perfection</div></div>
+  </div>
+</div>
+
+<!-- ═══ ABOUT ═══ -->
+<section id="about">
+  <div class="section">
+    <div class="about-grid">
+      <div class="about-img-wrap reveal">
+        <img class="about-img" src="assets/cater1.png" alt="Professional catering chef">
+        <img class="about-accent-img" src="https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Gourmet food">
+        <div class="about-img-badge">
+          <div class="aib-num">12+</div>
+          <div class="aib-label">Years of<br>Excellence</div>
+        </div>
+      </div>
+      <div>
+        <div class="tag reveal"><div class="tag-line"></div> Our Story</div>
+        <h2 class="section-heading reveal reveal-delay-1 typewriter-target">One-Stop Catering,<br><em>Beyond Expectation</em></h2>
+        <p class="about-body reveal reveal-delay-2">Elizabeth Segametse Brits Trading is a proudly Black Empowered company based in Postmasburg, delivering culinary excellence for every occasion — from intimate boardroom meetings to large-scale government galas.</p>
+        <p class="about-body reveal reveal-delay-2" style="margin-top:1rem;">Our founder, Mrs. Elizabeth Segametse Brits, fuses 10+ years of financial sector experience with deep hospitality expertise. We serve government departments, local mines in the Postmasburg district, corporates, and private clients with unmatched passion and punctuality.</p>
+        <div class="about-stats reveal reveal-delay-3">
+          <div class="about-stat">
+            <div class="as-num">100+</div>
+            <div class="as-label">Events catered yearly</div>
+          </div>
+          <div class="about-stat">
+            <div class="as-num">200+</div>
+            <div class="as-label">Max guest capacity</div>
+          </div>
+          <div class="about-stat">
+            <div class="as-num">BEE 1</div>
+            <div class="as-label">Level 1 compliant</div>
+          </div>
+          <div class="about-stat">
+            <div class="as-num">2012</div>
+            <div class="as-label">Established</div>
+          </div>
+        </div>
+        <div class="about-badges reveal reveal-delay-4">
+          <span class="badge-pill">🌿 Locally Sourced</span>
+          <span class="badge-pill">⏰ Punctuality Guarantee</span>
+          <span class="badge-pill">✅ HACCP Standards</span>
+          <span class="badge-pill">🏆 BEE Certified</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES ═══ -->
+<section id="services" class="section-full services-bg">
+  <div class="section-inner">
+    <div class="services-header">
+      <div class="tag reveal"><div class="tag-line"></div> What We Offer</div>
+      <h2 class="section-heading reveal reveal-delay-1 typewriter-target">Exquisite Events,<br><em>Crafted for You</em></h2>
+      <p class="reveal reveal-delay-2" style="color:#6b4830;font-size:1rem;font-family:'Lora',serif;font-style:italic;">From intimate seminars to grand banquets — every scale, every occasion, perfected.</p>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="sc-icon-wrap">🎤</div>
+        <div class="sc-title">Seminars & Conferences</div>
+        <div class="sc-desc">Seamless catering for corporate gatherings, boardroom lunches, and government conferences with professional setup and impeccable service.</div>
+        <div class="sc-tag">Most Requested →</div>
+      </div>
+      <div class="service-card reveal reveal-delay-1">
+        <div class="sc-icon-wrap">🍷</div>
+        <div class="sc-title">Dinners & Banquets</div>
+        <div class="sc-desc">Elegant plated dinners, themed buffets, and fine banquets — every detail perfected from table setting to the very last course.</div>
+        <div class="sc-tag">Premium Service →</div>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="sc-icon-wrap">🥂</div>
+        <div class="sc-title">Cocktail & Corporate</div>
+        <div class="sc-desc">Sophisticated finger foods, stylish mocktails, and impeccable service for any function that demands distinction and elegance.</div>
+        <div class="sc-tag">Popular Choice →</div>
+      </div>
+      <div class="service-card service-card-wide reveal reveal-delay-1">
+        <div>
+          <div class="sc-icon-wrap">🏛</div>
+          <div class="sc-title">Government & Mining Sector</div>
+          <div class="sc-desc">Trusted catering partner for Department of Health, local mines, and private sector giants across Northern Cape. Monthly retained contracts available — reliable, consistent, exceptional.</div>
+          <div class="sc-tag">Long-Term Contracts Welcome →</div>
+        </div>
+        <div>
+          <div class="sc-icon-wrap">🚚</div>
+          <div class="sc-title">Any Venue, Zero Hassle</div>
+          <div class="sc-desc">Your office, home, or external venue — we bring the full kitchen to you. Full equipment, fresh ingredients, professional staff, and a seamless end-to-end experience guaranteed.</div>
+          <div class="sc-tag">Fully Mobile →</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TRACK RECORD ═══ -->
+<section id="track">
+  <div class="section">
+    <div class="tag reveal"><div class="tag-line"></div> Track Record</div>
+    <h2 class="section-heading reveal reveal-delay-1 typewriter-target" style="max-width:600px;">Proven Excellence<br>in <em>Every Function</em></h2>
+    <div class="track-grid" style="margin-top:3rem;">
+      <div class="track-card reveal">
+        <div class="tc-icon">📅</div>
+        <div class="tc-title">Monthly Retained Clients</div>
+        <div class="tc-body">Elizabeth Segametse Brits Trading coordinates and caters for numerous high-profile events with long-term client relationships built on trust and consistency.</div>
+        <div class="tc-clients">
+          <div class="tc-client-row">
+            <div class="tc-client-dot"></div>
+            <div>
+              <div class="tc-client-name">Department of Health</div>
+              <div class="tc-client-desc">Monthly health workshops & government conferences</div>
+            </div>
+          </div>
+          <div class="tc-client-row">
+            <div class="tc-client-dot"></div>
+            <div>
+              <div class="tc-client-name">Auckland Investments (JHB)</div>
+              <div class="tc-client-desc">Long-term catering partnership</div>
+            </div>
+          </div>
+          <div class="tc-client-row">
+            <div class="tc-client-dot"></div>
+            <div>
+              <div class="tc-client-name">Trio-Plus Development</div>
+              <div class="tc-client-desc">Ongoing corporate catering contract</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="track-card reveal reveal-delay-1">
+        <div class="tc-icon">📰</div>
+        <div class="tc-title">Media Spotlight</div>
+        <div class="tc-body">Elizabeth Segametse Brits has been recognised as a trailblazer in the Northern Cape entrepreneurship space, featured in national business publications.</div>
+        <div class="tc-quote">"When the opportunity of entrepreneurship came by, businesswoman snapped at the chance and grew a successful company" — Business Report Entrepreneurs</div>
+        <div class="tc-body" style="margin-top:1rem;">After a distinguished career at Sanlam as a financial adviser for over 10 years in Postmasburg, Mrs. Brits channelled that expertise into building a renowned catering enterprise.</div>
+      </div>
+    </div>
+    <div class="media-strip reveal">
+      <div class="media-icon">📸</div>
+      <div>
+        <div class="media-label">As seen in</div>
+        <div class="media-headline">"Business Report Entrepreneurs · Sanlam Alumni Spotlight · Northern Cape Business Accolades"</div>
+        <div class="media-source">Consistent 5-star feedback on cleanliness, punctuality, and taste across all retained clients</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ KITCHEN ═══ -->
+<section class="section-full" style="background:linear-gradient(155deg,#fdf9f3,#f0e4cc);">
+  <div class="section-inner">
+    <div class="kitchen-grid">
+      <div>
+        <div class="tag reveal"><div class="tag-line"></div> Our Standards</div>
+        <h2 class="section-heading reveal reveal-delay-1 typewriter-target">Fully-Equipped Kitchen<br>& <em>Strict Sanitation</em></h2>
+        <p class="reveal reveal-delay-2" style="color:#6b4830;font-size:1rem;line-height:1.85;font-family:'Lora',serif;">Most dishes crafted from scratch using fresh vegetables, premium meats, and quality dairy. Our chef exercises strict sanitation, quality production, and artistic presentation at every event.</p>
+        <div class="kitchen-features">
+          <div class="kf-item reveal reveal-delay-1">
+            <div class="kf-icon">🌱</div>
+            <div>
+              <div class="kf-title">Locally Sourced Ingredients</div>
+              <div class="kf-desc">Fresh produce from Northern Cape suppliers, supporting local farmers and delivering peak flavour to every plate.</div>
+            </div>
+          </div>
+          <div class="kf-item reveal reveal-delay-2">
+            <div class="kf-icon">✅</div>
+            <div>
+              <div class="kf-title">HACCP Compliant</div>
+              <div class="kf-desc">Full hazard analysis and critical control point procedures maintained across all operations and events.</div>
+            </div>
+          </div>
+          <div class="kf-item reveal reveal-delay-3">
+            <div class="kf-icon">⏱</div>
+            <div>
+              <div class="kf-title">Punctuality Guarantee</div>
+              <div class="kf-desc">Book 1 day ahead for standard orders, 3 days for 50+ guests. Last-minute requests accommodated wherever possible.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="kitchen-imgs reveal">
+        <img class="ki-main" src="assets/cater2.png" alt="Professional kitchen">
+        <img class="ki-float" src="https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Plated food">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CONTACT ═══ -->
+<section id="contact" class="section-full contact-section">
+  <div class="section-inner">
+    <div class="contact-grid">
+      <div>
+        <div class="tag reveal"><div class="tag-line"></div> Get in Touch</div>
+        <h2 class="section-heading reveal reveal-delay-1 typewriter-target">Let's Craft<br><em>Your Event</em></h2>
+        <p class="reveal reveal-delay-2" style="color:#6b4830;font-size:1rem;line-height:1.85;max-width:380px;font-family:'Lora',serif;">Ready to elevate your next function? Reach out and let us create an unforgettable catering experience for your guests.</p>
+        <div class="contact-details">
+          <div class="cd-item reveal reveal-delay-1"><div class="cd-icon">📞</div><div><div class="cd-label">Phone</div><div class="cd-value">+27 82 698 8741</div></div></div>
+          <div class="cd-item reveal reveal-delay-2"><div class="cd-icon">📍</div><div><div class="cd-label">Address</div><div class="cd-value">1214 Jacob Zuma Street, Boichoko, Postmasburg, 8420</div></div></div>
+          <div class="cd-item reveal reveal-delay-3"><div class="cd-icon">✉️</div><div><div class="cd-label">Email</div><div class="cd-value">catering@elizabethbrits.co.za</div></div></div>
+        </div>
+      </div>
+      <div class="contact-form-wrap reveal">
+        <h3 style="font-family:'Playfair Display',serif;font-size:1.9rem;font-weight:700;color:var(--dark-brown);margin-bottom:0.5rem;">Send an Enquiry</h3>
+        <p style="font-family:'Lora',serif;font-size:0.88rem;color:var(--mid-brown);margin-bottom:2rem;font-style:italic;">We'll respond within 24 hours</p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+          <div class="form-group"><label class="form-label">First Name</label><input class="form-input" type="text" placeholder="Elizabeth"></div>
+          <div class="form-group"><label class="form-label">Last Name</label><input class="form-input" type="text" placeholder="Brits"></div>
+        </div>
+        <div class="form-group"><label class="form-label">Email Address</label><input class="form-input" type="email" placeholder="you@company.co.za"></div>
+        <div class="form-group"><label class="form-label">Phone Number</label><input class="form-input" type="tel" placeholder="+27 __ ___ ____"></div>
+        <div class="form-group"><label class="form-label">Event Details</label><textarea class="form-input" rows="4" placeholder="Date, number of guests, venue, type of event..."></textarea></div>
+        <button class="btn-submit">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER (background image) ═══ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div>
+        <div class="footer-brand-name">Elizabeth Segametse Brits Trading</div>
+        <p class="footer-tagline">Premium catering excellence for government, mining, and corporate clients across the Northern Cape. Driven by passion, served with heart.</p>
+        <div class="bee-badge" style="margin-top:1.5rem;">✦ BEE Level 1 Certified</div>
+      </div>
+      <div>
+        <div class="footer-col-title">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About Us</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#track">Track Record</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="#">Seminars & Conferences</a></li>
+          <li><a href="#">Dinners & Banquets</a></li>
+          <li><a href="#">Cocktail Functions</a></li>
+          <li><a href="#">Government Catering</a></li>
+          <li><a href="#">Mining Sector</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2025 Elizabeth Segametse Brits Trading (Pty) Ltd · Est. 2012 · Postmasburg, Northern Cape</span>
+      <span>Driven by excellence, served with heart.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  /* ─ CURSOR ─ */
+  const dot=document.getElementById('cursorDot'),ring=document.getElementById('cursorRing');
+  let mx=0,my=0,rx=0,ry=0;
+  document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
+  (function animC(){rx+=(mx-rx)*0.14;ry+=(my-ry)*0.14;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animC);})();
+  document.querySelectorAll('a,button,.service-card,.kf-item,.about-stat,.badge-pill,.ud-item,.tc-client-row').forEach(el=>{
+    el.addEventListener('mouseenter',()=>ring.classList.add('hovered'));
+    el.addEventListener('mouseleave',()=>ring.classList.remove('hovered'));
+  });
+
+  /* ─ NAVBAR ─ */
+  window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>60));
+
+  /* ─ HERO SLIDESHOW ─ */
+  const slides=document.querySelectorAll('.hero-slide'),dots=document.querySelectorAll('.hi-dot');
+  let current=0,timer;
+  function goToSlide(n){slides[current].classList.remove('active');dots[current].classList.remove('active');current=n;slides[current].classList.add('active');dots[current].classList.add('active');clearInterval(timer);timer=setInterval(()=>goToSlide((current+1)%slides.length),5800);}
+  timer=setInterval(()=>goToSlide((current+1)%slides.length),5800);
+
+  /* ─ SCROLL REVEAL ─ */
+  const io=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        e.target.classList.add('visible');
+        io.unobserve(e.target);
+        // Trigger typewriter if target
+        if(e.target.classList.contains('typewriter-target')) triggerTypewriter(e.target);
+      }
+    });
+  },{threshold:0.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  /* ─ TYPEWRITER EFFECT ─ */
+  function triggerTypewriter(el){
+    // Only run once
+    if(el.dataset.typed) return;
+    el.dataset.typed='1';
+    // Collect all text nodes / em
+    const originalHTML = el.innerHTML;
+    // We'll retype character by character by rebuilding innerHTML
+    el.innerHTML='';
+    // Parse simple: collect spans for each char preserving em tags
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = originalHTML;
+
+    // Flatten to array of {char, em} objects
+    const chars=[];
+    tempDiv.childNodes.forEach(node=>{
+      if(node.nodeType===3){
+        [...node.textContent].forEach(c=>chars.push({c,em:false,br:c==='\n'}));
+      } else if(node.nodeName==='BR'){
+        chars.push({c:'',em:false,br:true});
+      } else if(node.nodeName==='EM'){
+        [...node.textContent].forEach(c=>chars.push({c,em:true,br:false}));
+      }
+    });
+
+    let i=0;
+    function type(){
+      if(i>=chars.length){ el.querySelector('.typewriter')&&el.querySelector('.typewriter').classList.remove('typewriter'); return; }
+      const ch=chars[i++];
+      // Rebuild
+      let html='';
+      const done=chars.slice(0,i);
+      let inEm=false;
+      done.forEach((d,idx)=>{
+        if(d.em&&!inEm){html+='<em>';inEm=true;}
+        if(!d.em&&inEm){html+='</em>';inEm=false;}
+        if(d.br) html+='<br>';
+        else html+=d.c;
+        if(idx===done.length-1&&i<chars.length) html+='<span class="typewriter"> </span>';
+      });
+      if(inEm) html+='</em>';
+      el.innerHTML=html;
+      setTimeout(type, ch.c===' '||ch.br?50:28+Math.random()*30);
+    }
+    // Small delay after reveal
+    setTimeout(type, 300);
+  }
+
+  /* ─ SMOOTH SCROLL ─ */
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',e=>{
+      const t=document.querySelector(a.getAttribute('href'));
+      if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'});}
+    });
+  });
+</script>
+</body>
+</html>
