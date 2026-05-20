@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Elizabeth Segametse Brits Trading | Premium Catering Northern Cape</title>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400;1,600&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 
   <style>
     :root {
@@ -30,6 +31,22 @@
       color: var(--espresso);
       overflow-x: hidden;
     }
+
+    /* ═══ LUCIDE ICONS ═══ */
+    .icon { display: inline-flex; align-items: center; justify-content: center; }
+    .icon svg { width: 1em; height: 1em; stroke-width: 1.8; vertical-align: middle; }
+    /* tc-icon sizing */
+    .tc-icon .icon svg { width: 32px; height: 32px; stroke: var(--warm-brown); }
+    /* media-icon sizing */
+    .media-icon .icon svg { width: 44px; height: 44px; stroke: var(--gold-light); stroke-width: 1.5; }
+    /* kf-icon sizing */
+    .kf-icon .icon svg { width: 24px; height: 24px; stroke: var(--warm-brown); }
+    /* cd-icon sizing */
+    .cd-icon .icon svg { width: 22px; height: 22px; stroke: #fff; stroke-width: 2; }
+    /* badge-pill sizing */
+    .badge-pill .icon svg { width: 13px; height: 13px; stroke: var(--mid-brown); stroke-width: 2; }
+    /* footer bee-badge */
+    .bee-badge .icon svg { width: 13px; height: 13px; stroke: var(--gold-light); stroke-width: 2; }
 
     /* ═══ CUSTOM CURSOR ═══ */
     .cursor-dot { width: 7px; height: 7px; background: var(--gold); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); }
@@ -115,11 +132,24 @@
       object-position: center;
     }
 
-    .hero-slide:nth-child(2) { background-image: url('./assets/chef.png'); }
-    .hero-slide:nth-child(3) { background-image: url('./assets/cater4.png'); }
-    .hero-slide:nth-child(4) { background-image: url('./assets/cater3.png'); }
+    /* ── Hero slide background images ── */
+    .hero-slide:nth-child(2) {
+      background-image:
+        linear-gradient(to bottom, rgba(34,20,8,0.45) 0%, rgba(34,20,8,0.3) 50%, rgba(34,20,8,0.55) 100%),
+        url('./assets/chef.png');
+    }
+    .hero-slide:nth-child(3) {
+      background-image:
+        linear-gradient(to bottom, rgba(34,20,8,0.45) 0%, rgba(34,20,8,0.3) 50%, rgba(34,20,8,0.55) 100%),
+        url('./assets/cater4.png');
+    }
+    .hero-slide:nth-child(4) {
+      background-image:
+        linear-gradient(to bottom, rgba(34,20,8,0.45) 0%, rgba(34,20,8,0.3) 50%, rgba(34,20,8,0.55) 100%),
+        url('./assets/cater3.png');
+    }
 
-    /* Veil — warm cinematic tone */
+    /* Veil */
     .hero-veil {
       position: absolute; inset: 0; z-index: 1;
       background: linear-gradient(
@@ -134,43 +164,7 @@
       background: linear-gradient(to top, var(--cream) 0%, transparent 100%);
     }
 
-    /* ── 3D FLOATING PLATES (CSS art) ── */
-    .plate-float {
-      position: absolute; z-index: 2;
-      pointer-events: none;
-    }
-    .plate {
-      width: 100px; height: 100px;
-      border-radius: 50%;
-      background: radial-gradient(ellipse at 35% 30%, rgba(255,255,255,0.35) 0%, rgba(255,255,255,0.08) 50%, transparent 70%);
-      border: 2px solid rgba(255,255,255,0.18);
-      box-shadow:
-        0 0 0 8px rgba(255,255,255,0.04),
-        0 0 0 18px rgba(255,255,255,0.02),
-        0 20px 60px rgba(0,0,0,0.3),
-        inset 0 1px 0 rgba(255,255,255,0.3);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2.2rem;
-      animation: floatPlate 6s ease-in-out infinite;
-      backdrop-filter: blur(4px);
-    }
-    .plate-float:nth-child(1) { top: 15%; left: 5%; }
-    .plate-float:nth-child(1) .plate { width: 80px; height: 80px; font-size: 1.8rem; animation-delay: 0s; animation-duration: 7s; }
-    .plate-float:nth-child(2) { top: 20%; right: 7%; }
-    .plate-float:nth-child(2) .plate { width: 110px; height: 110px; font-size: 2.4rem; animation-delay: -2s; animation-duration: 8s; }
-    .plate-float:nth-child(3) { bottom: 28%; left: 8%; }
-    .plate-float:nth-child(3) .plate { width: 70px; height: 70px; font-size: 1.5rem; animation-delay: -4s; animation-duration: 6s; }
-    .plate-float:nth-child(4) { bottom: 30%; right: 5%; }
-    .plate-float:nth-child(4) .plate { width: 90px; height: 90px; font-size: 2rem; animation-delay: -1s; animation-duration: 9s; }
-
-    @keyframes floatPlate {
-      0%, 100% { transform: translateY(0) rotate(0deg); }
-      25% { transform: translateY(-16px) rotate(3deg); }
-      50% { transform: translateY(-8px) rotate(-2deg); }
-      75% { transform: translateY(-22px) rotate(1deg); }
-    }
-
-    /* ── STEAM PARTICLES (CSS SVG-free) ── */
+    /* ── STEAM PARTICLES ── */
     .steam-wrap {
       position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%);
       width: 200px; height: 80px; pointer-events: none; z-index: 5;
@@ -197,7 +191,7 @@
       100% { opacity: 0; transform: translateY(-60px) scaleX(2.5) translateX(10px); }
     }
 
-    /* ── HERO CONTENT (centered) ── */
+    /* ── HERO CONTENT ── */
     .hero-content {
       position: relative; z-index: 3;
       text-align: center;
@@ -208,22 +202,6 @@
       position: relative;
       display: inline-block;
       margin-bottom: 2rem;
-    }
-    .hero-plate-icon {
-      width: 80px; height: 80px;
-      background: rgba(255,255,255,0.12);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255,255,255,0.25);
-      border-radius: 50%;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 2rem; margin: 0 auto;
-      box-shadow: 0 0 0 12px rgba(255,255,255,0.04), 0 0 0 24px rgba(255,255,255,0.02);
-      animation: plateServe 1s cubic-bezier(0.23, 1, 0.32, 1) 0.1s both;
-    }
-    @keyframes plateServe {
-      0% { opacity: 0; transform: translateY(60px) scale(0.7); }
-      60% { transform: translateY(-8px) scale(1.05); }
-      100% { opacity: 1; transform: translateY(0) scale(1); }
     }
 
     .hero-eyebrow {
@@ -238,7 +216,6 @@
     .eyebrow-dot { width: 5px; height: 5px; background: var(--gold-light); border-radius: 50%; animation: pulse 2s infinite; }
     @keyframes pulse { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:0.4;transform:scale(1.5)} }
 
-    /* The hero title — rises like a hot plate being served */
     .hero-title-wrap {
       position: relative;
       margin-bottom: 1.8rem;
@@ -261,27 +238,10 @@
     }
 
     @keyframes riseFromPlate {
-      0% {
-        opacity: 0;
-        transform: translateY(80px) scale(0.92);
-        filter: blur(12px);
-        text-shadow: 0 0 0 rgba(255,255,255,0);
-      }
-      30% {
-        opacity: 0.6;
-        transform: translateY(20px) scale(0.97);
-        filter: blur(4px);
-      }
-      65% {
-        opacity: 0.9;
-        transform: translateY(-6px) scale(1.01);
-        filter: blur(1px);
-      }
-      100% {
-        opacity: 1;
-        transform: translateY(0) scale(1);
-        filter: blur(0);
-      }
+      0% { opacity: 0; transform: translateY(80px) scale(0.92); filter: blur(12px); }
+      30% { opacity: 0.6; transform: translateY(20px) scale(0.97); filter: blur(4px); }
+      65% { opacity: 0.9; transform: translateY(-6px) scale(1.01); filter: blur(1px); }
+      100% { opacity: 1; transform: translateY(0) scale(1); filter: blur(0); }
     }
 
     @keyframes riseSmoke {
@@ -336,43 +296,6 @@
     .scroll-line { width: 1px; height: 48px; background: linear-gradient(to bottom, rgba(255,255,255,0.4), transparent); animation: scrollAnim 2s infinite; }
     @keyframes scrollAnim { 0%,100%{transform:scaleY(1);opacity:1} 50%{transform:scaleY(0.3);opacity:0.3} }
 
-    /* ═══ KITCHEN UTENSILS DIVIDER ═══ */
-    .utensil-divider {
-      width: 100%;
-      padding: 2.2rem 0;
-      background: linear-gradient(to right, var(--cream), var(--cream-warm), var(--cream));
-      display: flex; align-items: center; justify-content: center;
-      gap: 0;
-      overflow: hidden;
-      position: relative;
-    }
-    .utensil-divider::before,
-    .utensil-divider::after {
-      content: '';
-      position: absolute; top: 50%; width: 22%;
-      height: 1px;
-      background: linear-gradient(to right, transparent, var(--beige));
-      transform: translateY(-50%);
-    }
-    .utensil-divider::before { left: 0; }
-    .utensil-divider::after { right: 0; background: linear-gradient(to left, transparent, var(--beige)); }
-    .ud-inner {
-      display: flex; align-items: center; gap: 1.8rem;
-      padding: 0 2rem;
-    }
-    .ud-item {
-      display: flex; flex-direction: column; align-items: center; gap: 0.3rem;
-      transition: all 0.35s;
-      cursor: default;
-    }
-    .ud-item:hover { transform: translateY(-5px) rotate(5deg); }
-    .ud-icon {
-      font-size: 1.6rem;
-      filter: drop-shadow(0 2px 4px rgba(143,94,56,0.2));
-    }
-    .ud-label { font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--warm-tan); font-weight: 500; }
-    .ud-line { width: 1px; height: 28px; background: linear-gradient(to bottom, transparent, var(--beige), transparent); }
-
     /* ═══ SECTIONS ═══ */
     .section { padding: 8rem 0; max-width: 1320px; margin: 0 auto; padding-left: 2.5rem; padding-right: 2.5rem; }
     .section-full { padding: 8rem 0; }
@@ -381,7 +304,6 @@
     .tag { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase; color: var(--warm-brown); margin-bottom: 0.8rem; }
     .tag-line { width: 24px; height: 1px; background: var(--warm-brown); }
 
-    /* Typewriter headings */
     .section-heading {
       font-family: 'Playfair Display', serif;
       font-size: clamp(2.4rem, 4.5vw, 4rem);
@@ -406,13 +328,15 @@
     .as-num { font-family: 'Playfair Display', serif; font-size: 2.2rem; font-weight: 700; color: var(--dark-brown); }
     .as-label { font-size: 0.78rem; color: var(--mid-brown); margin-top: 0.2rem; }
     .about-badges { display: flex; gap: 0.7rem; flex-wrap: wrap; margin-top: 2rem; }
-    .badge-pill { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.5rem 1.1rem; background: var(--cream-warm); border: 1px solid var(--beige); border-radius: 50px; font-size: 0.78rem; font-weight: 500; color: var(--dark-brown); transition: all 0.3s; }
+    .badge-pill { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.5rem 1.1rem; background: var(--cream-warm); border: 1px solid var(--beige); border-radius: 50px; font-size: 0.78rem; font-weight: 500; color: var(--dark-brown); transition: all 0.3s; }
     .badge-pill:hover { background: var(--dark-brown); color: var(--cream); border-color: var(--dark-brown); transform: translateY(-2px); }
+    .badge-pill:hover .icon svg { stroke: var(--cream); }
 
     /* ═══ SERVICES ═══ */
     .services-bg { background: linear-gradient(155deg, var(--cream-warm) 0%, var(--cream-deep) 50%, #e8d8be 100%); }
     .services-header { text-align: center; max-width: 640px; margin: 0 auto 4.5rem; }
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+
     .service-card {
       background: rgba(253,249,243,0.75);
       backdrop-filter: blur(18px) saturate(140%);
@@ -426,19 +350,45 @@
       content: ''; position: absolute; inset: 0;
       background: linear-gradient(135deg, var(--warm-brown), var(--gold));
       opacity: 0; transition: opacity 0.5s; border-radius: inherit;
+      z-index: 0;
     }
-    .service-card:hover { transform: translateY(-12px) scale(1.02); box-shadow: 0 32px 64px rgba(77,46,20,0.18); }
-    .service-card:hover::before { opacity: 1; }
-    .service-card * { position: relative; z-index: 1; }
-    .service-card:hover .sc-icon-wrap { background: rgba(255,255,255,0.2); }
+    .service-card::after {
+      content: ''; position: absolute; inset: 0;
+      background-size: cover; background-position: center;
+      opacity: 0;
+      transition: opacity 0.5s cubic-bezier(0.23,1,0.32,1);
+      border-radius: inherit;
+      z-index: 0;
+    }
+    .service-card:hover { transform: translateY(-12px) scale(1.02); box-shadow: 0 32px 64px rgba(77,46,20,0.25); }
+    .service-card:hover::after { opacity: 1; }
+    .service-card:hover::before { opacity: 0; }
+    .service-card .sc-scrim {
+      position: absolute; inset: 0; z-index: 1;
+      background: linear-gradient(160deg, rgba(34,20,8,0.72) 0%, rgba(77,46,20,0.82) 100%);
+      border-radius: inherit;
+      opacity: 0; transition: opacity 0.5s;
+    }
+    .service-card:hover .sc-scrim { opacity: 1; }
+    .service-card > * { position: relative; z-index: 2; }
+    .service-card .sc-scrim { z-index: 1; }
+    .service-card:hover .sc-icon-wrap { background: rgba(255,255,255,0.18); }
     .service-card:hover .sc-title,
     .service-card:hover .sc-desc,
     .service-card:hover .sc-tag { color: #fff !important; }
-    .sc-icon-wrap { width: 58px; height: 58px; background: var(--cream-deep); border-radius: 18px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.5rem; font-size: 1.6rem; transition: background 0.3s; }
+    .service-card:hover .sc-icon-wrap svg { stroke: #fff; }
+    .service-card[data-bg]::after { background-image: var(--card-bg); }
+
+    .sc-icon-wrap {
+      width: 58px; height: 58px; background: var(--cream-deep); border-radius: 18px;
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.5rem; transition: background 0.3s;
+    }
+    .sc-icon-wrap svg { width: 26px; height: 26px; stroke: var(--mid-brown); fill: none; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; transition: stroke 0.3s; }
+
     .sc-title { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 600; color: var(--dark-brown); margin-bottom: 0.8rem; transition: color 0.3s; }
     .sc-desc { font-size: 0.88rem; color: var(--mid-brown); line-height: 1.75; transition: color 0.3s; }
     .sc-tag { display: inline-block; margin-top: 1.4rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm-brown); transition: color 0.3s; }
-    .service-card-wide { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; padding: 2.5rem; }
 
     /* ═══ TRACK RECORD ═══ */
     .track-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
@@ -446,7 +396,7 @@
     .track-card::after { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: linear-gradient(to bottom, var(--warm-brown), var(--gold)); transition: width 0.4s; }
     .track-card:hover { box-shadow: 0 24px 56px rgba(77,46,20,0.10); transform: translateY(-6px); }
     .track-card:hover::after { width: 7px; }
-    .tc-icon { font-size: 2rem; margin-bottom: 1.2rem; }
+    .tc-icon { font-size: 2rem; margin-bottom: 1.2rem; line-height: 1; }
     .tc-title { font-family: 'Playfair Display', serif; font-size: 1.5rem; font-weight: 600; color: var(--dark-brown); margin-bottom: 1rem; }
     .tc-body { font-size: 0.9rem; color: var(--mid-brown); line-height: 1.82; }
     .tc-quote { margin-top: 1.4rem; padding: 1rem 1.3rem; background: var(--cream-warm); border-radius: 12px; border-left: 3px solid var(--gold); font-family: 'Lora', serif; font-size: 0.88rem; font-style: italic; color: #6b4830; line-height: 1.75; }
@@ -457,7 +407,7 @@
     .tc-client-name { font-weight: 600; color: var(--dark-brown); }
     .tc-client-desc { font-size: 0.76rem; color: var(--mid-brown); }
     .media-strip { margin-top: 3rem; background: linear-gradient(135deg, var(--dark-brown), #3a2010); border-radius: 24px; padding: 2.5rem 3rem; display: flex; align-items: center; gap: 3rem; }
-    .media-icon { font-size: 2.8rem; flex-shrink: 0; }
+    .media-icon { font-size: 2.8rem; flex-shrink: 0; line-height: 1; }
     .media-label { font-size: 0.68rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold-light); font-weight: 600; margin-bottom: 0.5rem; }
     .media-headline { font-family: 'Playfair Display', serif; font-size: 1.35rem; font-style: italic; color: #fff; line-height: 1.45; }
     .media-source { font-size: 0.78rem; color: rgba(253,249,243,0.5); margin-top: 0.8rem; }
@@ -467,7 +417,7 @@
     .kitchen-features { display: flex; flex-direction: column; gap: 1.4rem; margin-top: 2.5rem; }
     .kf-item { display: flex; gap: 1.2rem; align-items: flex-start; padding: 1.3rem; background: rgba(253,249,243,0.85); backdrop-filter: blur(8px); border: 1px solid var(--beige); border-radius: 18px; transition: all 0.35s; }
     .kf-item:hover { transform: translateX(8px); border-color: var(--warm-tan); box-shadow: 0 8px 28px rgba(184,133,90,0.12); }
-    .kf-icon { font-size: 1.5rem; flex-shrink: 0; }
+    .kf-icon { font-size: 1.5rem; flex-shrink: 0; line-height: 1; padding-top: 2px; }
     .kf-title { font-weight: 600; font-size: 0.95rem; color: var(--dark-brown); margin-bottom: 0.2rem; }
     .kf-desc { font-size: 0.84rem; color: var(--mid-brown); line-height: 1.65; }
     .kitchen-imgs { position: relative; }
@@ -477,14 +427,13 @@
     /* ═══ CONTACT ═══ */
     .contact-section {
       background:
-        linear-gradient(to bottom, rgba(253,249,243,0.96) 0%, rgba(248,240,227,0.92) 100%),
         url('./assets/contactimg.png') center / cover no-repeat;
     }
     .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; }
     .contact-details { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 2.5rem; }
     .cd-item { display: flex; gap: 1.2rem; align-items: center; padding: 1.2rem 1.4rem; background: rgba(253,249,243,0.8); backdrop-filter: blur(12px); border: 1px solid var(--beige); border-radius: 16px; transition: all 0.3s; }
     .cd-item:hover { transform: translateX(6px); border-color: var(--warm-tan); box-shadow: 0 8px 24px rgba(184,133,90,0.12); }
-    .cd-icon { width: 46px; height: 46px; background: linear-gradient(135deg, var(--warm-brown), var(--gold)); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .cd-icon { width: 46px; height: 46px; background: linear-gradient(135deg, var(--warm-brown), var(--gold)); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .cd-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.12em; color: var(--mid-brown); }
     .cd-value { font-size: 0.94rem; font-weight: 500; color: var(--dark-brown); margin-top: 0.1rem; }
     .contact-form-wrap { background: rgba(253,249,243,0.6); backdrop-filter: blur(28px) saturate(160%); -webkit-backdrop-filter: blur(28px) saturate(160%); border: 1px solid rgba(226,206,173,0.75); border-radius: 32px; padding: 3rem; box-shadow: 0 24px 72px rgba(77,46,20,0.1); }
@@ -497,7 +446,7 @@
     .btn-submit { width: 100%; padding: 1.1rem; background: linear-gradient(135deg, var(--dark-brown), var(--mid-brown)); color: #fff; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.07em; border: none; border-radius: 14px; cursor: pointer; transition: all 0.35s; margin-top: 0.5rem; }
     .btn-submit:hover { background: linear-gradient(135deg, var(--warm-brown), var(--gold)); transform: translateY(-2px); box-shadow: 0 10px 32px rgba(184,133,90,0.32); }
 
-    /* ═══ FOOTER WITH BACKGROUND IMAGE ═══ */
+    /* ═══ FOOTER ═══ */
     .footer {
       position: relative;
       background:
@@ -529,7 +478,6 @@
       .hero-title { font-size: clamp(2.8rem, 9vw, 4rem); }
       .about-grid, .kitchen-grid, .contact-grid { grid-template-columns: 1fr; }
       .services-grid { grid-template-columns: 1fr; }
-      .service-card-wide { grid-column: span 1; grid-template-columns: 1fr; }
       .track-grid { grid-template-columns: 1fr; }
       .footer-top { grid-template-columns: 1fr; gap: 2rem; }
       .footer-bottom { flex-direction: column; gap: 0.8rem; text-align: center; }
@@ -539,8 +487,6 @@
       .nav-links { display: none; }
       .nav-hamburger { display: flex; }
       .media-strip { flex-direction: column; gap: 1.5rem; }
-      .plate-float { display: none; }
-      .ud-inner { gap: 1rem; }
     }
   </style>
 </head>
@@ -553,7 +499,11 @@
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
     <a href="#home" class="nav-brand">
-      <div class="nav-brand-mark">🍽</div>
+      <div class="nav-brand-mark">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M3 12a9 9 0 0 1 18 0"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 3v1"/>
+        </svg>
+      </div>
       Elizabeth S. Brits
     </a>
     <ul class="nav-links">
@@ -569,29 +519,20 @@
 <!-- ═══ HERO ═══ -->
 <section id="home" class="hero">
   <div class="hero-slides">
-    <!-- SLIDE 1: Background Video -->
     <div class="hero-slide-video active">
       <video autoplay muted loop playsinline>
-        <source src="./assets/elivid2.mov" type="video/mp4">
-        <source src="./assets/elivid2.mov" type="video/webm">
+        <source src="./assets/elivid3.mov" type="video/mp4">
+        <source src="./assets/elivid3.mov" type="video/webm">
       </video>
     </div>
-    <!-- SLIDES 2–4: Image slides -->
-    <div class="hero-slide" style="background-image:url('./assets/chef.png');"></div>
-    <div class="hero-slide" style="background-image:url('./assets/cater4.png');"></div>
-    <div class="hero-slide" style="background-image:url('./assets/cater3.png');"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
+    <div class="hero-slide"></div>
   </div>
   <div class="hero-veil"></div>
   <div class="hero-fade-bottom"></div>
 
-  <!-- 3D floating plate decorations 
-  <div class="plate-float"><div class="plate">🍽</div></div>
-  <div class="plate-float"><div class="plate">🥘</div></div>
-  <div class="plate-float"><div class="plate">🍴</div></div>
-  <div class="plate-float"><div class="plate">🥗</div></div>-->
-
   <div class="hero-content">
-    <!-- Serving plate animation with steam -->
     <div class="hero-plate-serve">
       <div class="steam-wrap">
         <div class="steam-particle"></div>
@@ -600,26 +541,18 @@
         <div class="steam-particle"></div>
         <div class="steam-particle"></div>
       </div>
-      <div class="hero-plate-icon">🍽</div>
     </div>
-
-    <!--<div class="hero-eyebrow">
-      <div class="eyebrow-dot"></div>
-      BEE Level 1 · Est. 2012 · Northern Cape
-    </div>-->
 
     <div class="hero-title-wrap">
       <h1 class="hero-title">
         Beyond the Plate,<br>
-        <em>Extraordinary Moments</em>
+        <em>Beautiful Moments</em>
       </h1>
     </div>
 
-    <p class="hero-sub">Premium catering for government, mines & corporates across the Northern Cape — crafted with passion, served with precision and heart.</p>
-
     <div class="hero-actions">
-      <a href="#contact" class="btn-hero-primary">Request a Quote →</a>
-      <a href="#services" class="btn-hero-ghost">Explore Services</a>
+      <a href="contact.html" class="btn-hero-primary">Request a Quote →</a>
+      <a href="services.html" class="btn-hero-ghost">Explore Services</a>
     </div>
   </div>
 
@@ -634,27 +567,6 @@
     <div class="scroll-line"></div>
   </div>
 </section>
-
-<!-- ═══ KITCHEN UTENSILS DIVIDER ═══ 
-<div class="utensil-divider">
-  <div class="ud-inner">
-    <div class="ud-item"><div class="ud-icon">🔪</div><div class="ud-label">Chef's Knife</div></div>
-    <div class="ud-line"></div>
-    <div class="ud-item"><div class="ud-icon">🥄</div><div class="ud-label">Ladle</div></div>
-    <div class="ud-line"></div>
-    <div class="ud-item"><div class="ud-icon">🍳</div><div class="ud-label">Cookware</div></div>
-    <div class="ud-line"></div>
-    <div class="ud-item"><div class="ud-icon">🧂</div><div class="ud-label">Seasoned</div></div>
-    <div class="ud-line"></div>
-    <div class="ud-item"><div class="ud-icon">🫕</div><div class="ud-label">Slow-Cooked</div></div>
-    <div class="ud-line"></div>
-    <div class="ud-item"><div class="ud-icon">🥘</div><div class="ud-label">From Scratch</div></div>
-    <div class="ud-line"></div>
-    <div class="ud-item"><div class="ud-icon">🌿</div><div class="ud-label">Fresh & Local</div></div>
-    <div class="ud-line"></div>
-    <div class="ud-item"><div class="ud-icon">🍽</div><div class="ud-label">Plated Perfection</div></div>
-  </div>
-</div>-->
 
 <!-- ═══ ABOUT ═══ -->
 <section id="about">
@@ -692,10 +604,10 @@
           </div>
         </div>
         <div class="about-badges reveal reveal-delay-4">
-          <span class="badge-pill">🌿 Locally Sourced</span>
-          <span class="badge-pill">⏰ Punctuality Guarantee</span>
-          <span class="badge-pill">✅ HACCP Standards</span>
-          <span class="badge-pill">🏆 BEE Certified</span>
+          <span class="badge-pill"><span class="icon"><i data-lucide="leaf"></i></span> Locally Sourced</span>
+          <span class="badge-pill"><span class="icon"><i data-lucide="clock"></i></span> Punctuality Guarantee</span>
+          <span class="badge-pill"><span class="icon"><i data-lucide="badge-check"></i></span> HACCP Standards</span>
+          <span class="badge-pill"><span class="icon"><i data-lucide="award"></i></span> BEE Certified</span>
         </div>
       </div>
     </div>
@@ -711,38 +623,62 @@
       <p class="reveal reveal-delay-2" style="color:#6b4830;font-size:1rem;font-family:'Lora',serif;font-style:italic;">From intimate seminars to grand banquets — every scale, every occasion, perfected.</p>
     </div>
     <div class="services-grid">
-      <div class="service-card reveal">
-        <div class="sc-icon-wrap">🎤</div>
+
+      <!-- Card 1: Seminars & Conferences -->
+      <div class="service-card reveal" style="--card-bg: url('./assets/seminar.png');">
+        <div class="sc-scrim"></div>
+        <div class="sc-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M12 1a4 4 0 0 1 4 4v6a4 4 0 0 1-8 0V5a4 4 0 0 1 4-4z"/><path d="M19 10a7 7 0 0 1-14 0"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        </div>
         <div class="sc-title">Seminars & Conferences</div>
         <div class="sc-desc">Seamless catering for corporate gatherings, boardroom lunches, and government conferences with professional setup and impeccable service.</div>
         <div class="sc-tag">Most Requested →</div>
       </div>
-      <div class="service-card reveal reveal-delay-1">
-        <div class="sc-icon-wrap">🍷</div>
+
+      <!-- Card 2: Dinners & Banquets -->
+      <div class="service-card reveal reveal-delay-1" style="--card-bg: url('./assets/banquet.png');">
+        <div class="sc-scrim"></div>
+        <div class="sc-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M8 22h8"/><path d="M12 11v11"/><path d="M6 2l1.5 9a4.5 4.5 0 0 0 9 0L18 2H6z"/></svg>
+        </div>
         <div class="sc-title">Dinners & Banquets</div>
         <div class="sc-desc">Elegant plated dinners, themed buffets, and fine banquets — every detail perfected from table setting to the very last course.</div>
         <div class="sc-tag">Premium Service →</div>
       </div>
-      <div class="service-card reveal reveal-delay-2">
-        <div class="sc-icon-wrap">🥂</div>
+
+      <!-- Card 3: Cocktail & Corporate -->
+      <div class="service-card reveal reveal-delay-2" style="--card-bg: url('./assets/cocktail.png');">
+        <div class="sc-scrim"></div>
+        <div class="sc-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M8 22h8"/><path d="M12 15v7"/><path d="M5 3l7 12 7-12H5z"/></svg>
+        </div>
         <div class="sc-title">Cocktail & Corporate</div>
         <div class="sc-desc">Sophisticated finger foods, stylish mocktails, and impeccable service for any function that demands distinction and elegance.</div>
         <div class="sc-tag">Popular Choice →</div>
       </div>
-      <div class="service-card service-card-wide reveal reveal-delay-1">
-        <div>
-          <div class="sc-icon-wrap">🏛</div>
-          <div class="sc-title">Government & Mining Sector</div>
-          <div class="sc-desc">Trusted catering partner for Department of Health, local mines, and private sector giants across Northern Cape. Monthly retained contracts available — reliable, consistent, exceptional.</div>
-          <div class="sc-tag">Long-Term Contracts Welcome →</div>
+
+      <!-- Card 4: Government & Mining Sector -->
+      <div class="service-card reveal reveal-delay-1" style="--card-bg: url('./assets/governmentsector.png');">
+        <div class="sc-scrim"></div>
+        <div class="sc-icon-wrap">
+          <svg viewBox="0 0 24 24"><path d="M3 22V9l9-7 9 7v13H3z"/><rect x="9" y="14" width="6" height="8"/><path d="M3 9h18"/></svg>
         </div>
-        <div>
-          <div class="sc-icon-wrap">🚚</div>
-          <div class="sc-title">Any Venue, Zero Hassle</div>
-          <div class="sc-desc">Your office, home, or external venue — we bring the full kitchen to you. Full equipment, fresh ingredients, professional staff, and a seamless end-to-end experience guaranteed.</div>
-          <div class="sc-tag">Fully Mobile →</div>
-        </div>
+        <div class="sc-title">Government & Mining Sector</div>
+        <div class="sc-desc">Trusted catering partner for Department of Health, local mines, and private sector giants across Northern Cape. Monthly retained contracts available — reliable, consistent, exceptional.</div>
+        <div class="sc-tag">Long-Term Contracts Welcome →</div>
       </div>
+
+      <!-- Card 5: Any Venue, Zero Hassle -->
+      <div class="service-card reveal reveal-delay-2" style="--card-bg: url('https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=800');">
+        <div class="sc-scrim"></div>
+        <div class="sc-icon-wrap">
+          <svg viewBox="0 0 24 24"><rect x="1" y="3" width="15" height="13" rx="1"/><path d="M16 8h4l3 5v4h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        </div>
+        <div class="sc-title">Any Venue, Zero Hassle</div>
+        <div class="sc-desc">Your office, home, or external venue — we bring the full kitchen to you. Full equipment, fresh ingredients, professional staff, and a seamless end-to-end experience guaranteed.</div>
+        <div class="sc-tag">Fully Mobile →</div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -754,7 +690,7 @@
     <h2 class="section-heading reveal reveal-delay-1 typewriter-target" style="max-width:600px;">Proven Excellence<br>in <em>Every Function</em></h2>
     <div class="track-grid" style="margin-top:3rem;">
       <div class="track-card reveal">
-        <div class="tc-icon">📅</div>
+        <div class="tc-icon"><span class="icon"><i data-lucide="calendar-days"></i></span></div>
         <div class="tc-title">Monthly Retained Clients</div>
         <div class="tc-body">Elizabeth Segametse Brits Trading coordinates and caters for numerous high-profile events with long-term client relationships built on trust and consistency.</div>
         <div class="tc-clients">
@@ -782,7 +718,7 @@
         </div>
       </div>
       <div class="track-card reveal reveal-delay-1">
-        <div class="tc-icon">📰</div>
+        <div class="tc-icon"><span class="icon"><i data-lucide="newspaper"></i></span></div>
         <div class="tc-title">Media Spotlight</div>
         <div class="tc-body">Elizabeth Segametse Brits has been recognised as a trailblazer in the Northern Cape entrepreneurship space, featured in national business publications.</div>
         <div class="tc-quote">"When the opportunity of entrepreneurship came by, businesswoman snapped at the chance and grew a successful company" — Business Report Entrepreneurs</div>
@@ -790,7 +726,7 @@
       </div>
     </div>
     <div class="media-strip reveal">
-      <div class="media-icon">📸</div>
+      <div class="media-icon"><span class="icon"><i data-lucide="camera"></i></span></div>
       <div>
         <div class="media-label">As seen in</div>
         <div class="media-headline">"Business Report Entrepreneurs · Sanlam Alumni Spotlight · Northern Cape Business Accolades"</div>
@@ -810,21 +746,21 @@
         <p class="reveal reveal-delay-2" style="color:#6b4830;font-size:1rem;line-height:1.85;font-family:'Lora',serif;">Most dishes crafted from scratch using fresh vegetables, premium meats, and quality dairy. Our chef exercises strict sanitation, quality production, and artistic presentation at every event.</p>
         <div class="kitchen-features">
           <div class="kf-item reveal reveal-delay-1">
-            <div class="kf-icon">🌱</div>
+            <div class="kf-icon"><span class="icon"><i data-lucide="sprout"></i></span></div>
             <div>
               <div class="kf-title">Locally Sourced Ingredients</div>
               <div class="kf-desc">Fresh produce from Northern Cape suppliers, supporting local farmers and delivering peak flavour to every plate.</div>
             </div>
           </div>
           <div class="kf-item reveal reveal-delay-2">
-            <div class="kf-icon">✅</div>
+            <div class="kf-icon"><span class="icon"><i data-lucide="badge-check"></i></span></div>
             <div>
               <div class="kf-title">HACCP Compliant</div>
               <div class="kf-desc">Full hazard analysis and critical control point procedures maintained across all operations and events.</div>
             </div>
           </div>
           <div class="kf-item reveal reveal-delay-3">
-            <div class="kf-icon">⏱</div>
+            <div class="kf-icon"><span class="icon"><i data-lucide="timer"></i></span></div>
             <div>
               <div class="kf-title">Punctuality Guarantee</div>
               <div class="kf-desc">Book 1 day ahead for standard orders, 3 days for 50+ guests. Last-minute requests accommodated wherever possible.</div>
@@ -849,9 +785,18 @@
         <h2 class="section-heading reveal reveal-delay-1 typewriter-target">Let's Craft<br><em>Your Event</em></h2>
         <p class="reveal reveal-delay-2" style="color:#6b4830;font-size:1rem;line-height:1.85;max-width:380px;font-family:'Lora',serif;">Ready to elevate your next function? Reach out and let us create an unforgettable catering experience for your guests.</p>
         <div class="contact-details">
-          <div class="cd-item reveal reveal-delay-1"><div class="cd-icon">📞</div><div><div class="cd-label">Phone</div><div class="cd-value">+27 82 698 8741</div></div></div>
-          <div class="cd-item reveal reveal-delay-2"><div class="cd-icon">📍</div><div><div class="cd-label">Address</div><div class="cd-value">1214 Jacob Zuma Street, Boichoko, Postmasburg, 8420</div></div></div>
-          <div class="cd-item reveal reveal-delay-3"><div class="cd-icon">✉️</div><div><div class="cd-label">Email</div><div class="cd-value">catering@elizabethbrits.co.za</div></div></div>
+          <div class="cd-item reveal reveal-delay-1">
+            <div class="cd-icon"><span class="icon"><i data-lucide="phone"></i></span></div>
+            <div><div class="cd-label">Phone</div><div class="cd-value">+27 82 698 8741</div></div>
+          </div>
+          <div class="cd-item reveal reveal-delay-2">
+            <div class="cd-icon"><span class="icon"><i data-lucide="map-pin"></i></span></div>
+            <div><div class="cd-label">Address</div><div class="cd-value">1214 Jacob Zuma Street, Boichoko, Postmasburg, 8420</div></div>
+          </div>
+          <div class="cd-item reveal reveal-delay-3">
+            <div class="cd-icon"><span class="icon"><i data-lucide="mail"></i></span></div>
+            <div><div class="cd-label">Email</div><div class="cd-value">catering@elizabethbrits.co.za</div></div>
+          </div>
         </div>
       </div>
       <div class="contact-form-wrap reveal">
@@ -870,14 +815,14 @@
   </div>
 </section>
 
-<!-- ═══ FOOTER (background image) ═══ -->
+<!-- ═══ FOOTER ═══ -->
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-top">
       <div>
         <div class="footer-brand-name">Elizabeth Segametse Brits Trading</div>
         <p class="footer-tagline">Premium catering excellence for government, mining, and corporate clients across the Northern Cape. Driven by passion, served with heart.</p>
-        <div class="bee-badge" style="margin-top:1.5rem;">✦ BEE Level 1 Certified</div>
+        <div class="bee-badge" style="margin-top:1.5rem;"><span class="icon"><i data-lucide="award"></i></span> BEE Level 1 Certified</div>
       </div>
       <div>
         <div class="footer-col-title">Quick Links</div>
@@ -908,12 +853,15 @@
 </footer>
 
 <script>
+  /* ─ LUCIDE ICONS ─ */
+  lucide.createIcons();
+
   /* ─ CURSOR ─ */
   const dot=document.getElementById('cursorDot'),ring=document.getElementById('cursorRing');
   let mx=0,my=0,rx=0,ry=0;
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
   (function animC(){rx+=(mx-rx)*0.14;ry+=(my-ry)*0.14;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animC);})();
-  document.querySelectorAll('a,button,.service-card,.kf-item,.about-stat,.badge-pill,.ud-item,.tc-client-row').forEach(el=>{
+  document.querySelectorAll('a,button,.service-card,.kf-item,.about-stat,.badge-pill,.tc-client-row').forEach(el=>{
     el.addEventListener('mouseenter',()=>ring.classList.add('hovered'));
     el.addEventListener('mouseleave',()=>ring.classList.remove('hovered'));
   });
@@ -922,7 +870,6 @@
   window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>60));
 
   /* ─ HERO SLIDESHOW ─ */
-  // slides now includes the video slide (index 0) + 3 image slides (index 1-3)
   const imageSlides = document.querySelectorAll('.hero-slide');
   const videoSlide  = document.querySelector('.hero-slide-video');
   const allSlides   = [videoSlide, ...imageSlides];
@@ -935,7 +882,6 @@
     current = n;
     allSlides[current].classList.add('active');
     dots[current].classList.add('active');
-    // Pause/play video as needed
     const vid = videoSlide.querySelector('video');
     if (current === 0) { vid.play(); } else { vid.pause(); }
     clearInterval(timer);
@@ -944,13 +890,24 @@
 
   timer = setInterval(() => goToSlide((current + 1) % allSlides.length), 5800);
 
+  /* ─ Apply --card-bg CSS variable ─ */
+  document.querySelectorAll('.service-card[style]').forEach(card => {
+    const bg = card.style.getPropertyValue('--card-bg');
+    if (bg) {
+      const cls = 'sc-bg-' + Math.random().toString(36).slice(2, 7);
+      card.classList.add(cls);
+      const s = document.createElement('style');
+      s.textContent = `.${cls}::after { background-image: ${bg}; }`;
+      document.head.appendChild(s);
+    }
+  });
+
   /* ─ SCROLL REVEAL ─ */
   const io=new IntersectionObserver(entries=>{
     entries.forEach(e=>{
       if(e.isIntersecting){
         e.target.classList.add('visible');
         io.unobserve(e.target);
-        // Trigger typewriter if target
         if(e.target.classList.contains('typewriter-target')) triggerTypewriter(e.target);
       }
     });
@@ -959,18 +916,12 @@
 
   /* ─ TYPEWRITER EFFECT ─ */
   function triggerTypewriter(el){
-    // Only run once
     if(el.dataset.typed) return;
     el.dataset.typed='1';
-    // Collect all text nodes / em
     const originalHTML = el.innerHTML;
-    // We'll retype character by character by rebuilding innerHTML
     el.innerHTML='';
-    // Parse simple: collect spans for each char preserving em tags
     const tempDiv = document.createElement('div');
     tempDiv.innerHTML = originalHTML;
-
-    // Flatten to array of {char, em} objects
     const chars=[];
     tempDiv.childNodes.forEach(node=>{
       if(node.nodeType===3){
@@ -981,12 +932,10 @@
         [...node.textContent].forEach(c=>chars.push({c,em:true,br:false}));
       }
     });
-
     let i=0;
     function type(){
       if(i>=chars.length){ el.querySelector('.typewriter')&&el.querySelector('.typewriter').classList.remove('typewriter'); return; }
       const ch=chars[i++];
-      // Rebuild
       let html='';
       const done=chars.slice(0,i);
       let inEm=false;
@@ -1001,7 +950,6 @@
       el.innerHTML=html;
       setTimeout(type, ch.c===' '||ch.br?50:28+Math.random()*30);
     }
-    // Small delay after reveal
     setTimeout(type, 300);
   }
 

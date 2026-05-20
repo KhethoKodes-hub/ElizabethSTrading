@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Services | Elizabeth Segametse Brits Trading – Premium Catering Northern Cape</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <style>
     :root {
       --cream: #fdf8f0;
@@ -47,9 +48,9 @@
     .hero-slides { position: absolute; inset: 0; z-index: 0; }
     .hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.8s cubic-bezier(0.4,0,0.2,1), transform 7s ease; transform: scale(1.04); }
     .hero-slide.active { opacity: 1; transform: scale(1); }
-    .hero-slide:nth-child(1) { background-image: url('./assets/cater3.png'); }
-    .hero-slide:nth-child(2) { background-image: url('./assets/hero3.png'); }
-    .hero-slide:nth-child(3) { background-image: url('./assets/hero5.png'); }
+    .hero-slide:nth-child(1) { background-image: url('./assets/hero3.png'); }
+    .hero-slide:nth-child(2) { background-image: url('./assets/hero5.png'); }
+    .hero-slide:nth-child(3) { background-image: url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1600'); }
     .hero-veil { position: absolute; inset: 0; z-index: 1; background: linear-gradient(110deg, rgba(28,12,4,0.76) 0%, rgba(46,28,14,0.52) 45%, rgba(90,53,32,0.2) 75%, transparent 100%); }
     .hero-fade-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 200px; z-index: 2; background: linear-gradient(to top, var(--cream) 0%, transparent 100%); }
     .hero-content { position: relative; z-index: 3; text-align: center; max-width: 860px; padding: 0 2.5rem; }
@@ -100,13 +101,29 @@
       transition: all 0.35s;
     }
     .intro-pill:hover { transform: translateY(-5px); border-color: var(--warm-brown); box-shadow: 0 12px 32px rgba(196,154,108,0.12); }
-    .ip-icon { font-size: 1.6rem; flex-shrink: 0; }
+    .ip-icon { font-size: 1.6rem; flex-shrink: 0; width: 40px; text-align: center; }
     .ip-label { font-weight: 600; font-size: 0.9rem; color: var(--dark-brown); }
     .ip-desc { font-size: 0.78rem; color: var(--mid-brown); margin-top: 0.15rem; }
 
     /* ─── SERVICE CARDS GRID ─── */
-    .services-bg { background: linear-gradient(160deg,#fdf8f0,#f5ead8,#ede0cc); }
-    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .services-bg { 
+      background: linear-gradient(160deg,#fdf8f0,#f5ead8,#ede0cc);
+      position: relative;
+    }
+    .services-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('./assets/hero.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+    .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; position: relative; z-index: 1; }
     .sc {
       background: rgba(255,252,244,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(232,217,192,0.6); border-radius: 28px; padding: 2.4rem 2rem;
@@ -127,22 +144,35 @@
     .sc-check-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--gold); flex-shrink: 0; transition: background 0.3s; }
     .sc-tag { display: inline-block; margin-top: 1.4rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm-brown); transition: color 0.3s; }
 
-    /* Wide spanning card */
-    .sc-wide { grid-column: span 3; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2.5rem; }
-
     /* ─── FLEXIBLE SECTION ─── */
     .flex-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
     .flex-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 28px; display: block; }
     .flex-features { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 2rem; }
     .ff-item { display: flex; gap: 1.2rem; align-items: flex-start; padding: 1.2rem 1.4rem; background: rgba(255,252,244,0.8); backdrop-filter: blur(8px); border: 1px solid var(--beige); border-radius: 18px; transition: all 0.35s; }
     .ff-item:hover { transform: translateX(8px); border-color: var(--warm-brown); box-shadow: 0 8px 24px rgba(196,154,108,0.12); }
-    .ff-icon { font-size: 1.4rem; flex-shrink: 0; }
+    .ff-icon { font-size: 1.4rem; flex-shrink: 0; width: 32px; text-align: center; }
     .ff-title { font-weight: 600; font-size: 0.95rem; color: var(--dark-brown); margin-bottom: 0.2rem; }
     .ff-desc { font-size: 0.85rem; color: var(--mid-brown); line-height: 1.6; }
 
     /* ─── WHY US ─── */
-    .why-bg { background: var(--espresso); }
-    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .why-bg { 
+      background: var(--espresso);
+      position: relative;
+    }
+    .why-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('https://images.pexels.com/photos/1351238/pexels-photo-1351238.jpeg?auto=compress&cs=tinysrgb&w=1600');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+    .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; position: relative; z-index: 1; }
     .why-card { background: rgba(255,252,244,0.06); backdrop-filter: blur(12px); border: 1px solid rgba(255,252,244,0.1); border-radius: 24px; padding: 2.4rem 2rem; transition: all 0.4s; }
     .why-card:hover { background: rgba(255,252,244,0.12); transform: translateY(-6px); border-color: rgba(212,168,83,0.35); }
     .wc-icon { font-size: 2rem; margin-bottom: 1.2rem; }
@@ -150,8 +180,24 @@
     .wc-desc { font-size: 0.88rem; color: rgba(253,248,240,0.55); line-height: 1.8; }
 
     /* ─── EVENTS LIST ─── */
-    .events-bg { background: linear-gradient(160deg,#fdf8f0,#f5ead8); }
-    .events-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
+    .events-bg { 
+      background: linear-gradient(160deg,#fdf8f0,#f5ead8);
+      position: relative;
+    }
+    .events-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: url('https://images.pexels.com/photos/257816/pexels-photo-257816.jpeg?auto=compress&cs=tinysrgb&w=1600');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.08;
+      pointer-events: none;
+    }
+    .events-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; position: relative; z-index: 1; }
     .events-list { display: flex; flex-direction: column; gap: 0.9rem; margin-top: 2rem; }
     .el-item { display: flex; align-items: center; gap: 1.2rem; padding: 1rem 1.4rem; background: rgba(255,252,244,0.8); backdrop-filter: blur(8px); border: 1px solid var(--beige); border-radius: 14px; transition: all 0.3s; }
     .el-item:hover { transform: translateX(6px); border-color: var(--warm-brown); background: #fff; }
@@ -199,7 +245,6 @@
     /* ─── RESPONSIVE ─── */
     @media (max-width: 900px) {
       .services-grid { grid-template-columns: 1fr; }
-      .sc-wide { grid-column: span 1; grid-template-columns: 1fr; }
       .intro-strip { grid-template-columns: 1fr 1fr; }
       .flex-grid, .events-grid { grid-template-columns: 1fr; }
       .why-grid { grid-template-columns: 1fr; }
@@ -219,7 +264,7 @@
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
     <a href="index.html" class="nav-brand">
-      <div class="nav-brand-mark">🍽</div>
+      <div class="nav-brand-mark"><i class="fas fa-utensils"></i></div>
       Elizabeth S. Brits
     </a>
     <ul class="nav-links">
@@ -246,7 +291,7 @@
     <h1 class="hero-title">Tailored Catering,<br><em>Exceptional</em> Service</h1>
     <p class="hero-sub">From boardroom lunches to grand government galas — every detail crafted with passion, precision, and premium ingredients.</p>
     <div class="hero-actions">
-      <a href="services.html" class="btn-primary-hero">Explore Services →</a>
+      <a href="services.html" class="btn-primary-hero">Explore Services <i class="fas fa-arrow-right"></i></a>
       <a href="contact.html" class="btn-ghost-hero">Request a Quote</a>
     </div>
   </div>
@@ -260,8 +305,6 @@
   </div>
 </section>
 
-
-
 <!-- ═══ INTRO ═══ -->
 <section>
   <div class="section">
@@ -272,19 +315,19 @@
     </div>
     <div class="intro-strip">
       <div class="intro-pill reveal">
-        <div class="ip-icon">🏛</div>
+        <div class="ip-icon"><i class="fas fa-landmark"></i></div>
         <div><div class="ip-label">Government & Mines</div><div class="ip-desc">DOH, SOEs, mining sector</div></div>
       </div>
       <div class="intro-pill reveal reveal-delay-1">
-        <div class="ip-icon">🍽</div>
+        <div class="ip-icon"><i class="fas fa-users"></i></div>
         <div><div class="ip-label">Any Scale</div><div class="ip-desc">10 to 200+ guests</div></div>
       </div>
       <div class="intro-pill reveal reveal-delay-2">
-        <div class="ip-icon">🚚</div>
+        <div class="ip-icon"><i class="fas fa-truck"></i></div>
         <div><div class="ip-label">Any Venue</div><div class="ip-desc">Office, home, external</div></div>
       </div>
       <div class="intro-pill reveal reveal-delay-3">
-        <div class="ip-icon">🌿</div>
+        <div class="ip-icon"><i class="fas fa-leaf"></i></div>
         <div><div class="ip-label">Locally Sourced</div><div class="ip-desc">Scratch-cooked daily</div></div>
       </div>
     </div>
@@ -299,8 +342,10 @@
       <h2 class="section-heading reveal reveal-delay-1">Every Occasion,<br><em>Perfected</em></h2>
     </div>
     <div class="services-grid">
+
+      <!-- Row 1 -->
       <div class="sc reveal">
-        <div class="sc-icon-wrap">🎤</div>
+        <div class="sc-icon-wrap"><i class="fas fa-chalkboard-user"></i></div>
         <div class="sc-title">Seminars & Conferences</div>
         <div class="sc-desc">Seamless catering for professional gatherings, workshops, and government conferences. Finger lunches, buffet breaks, and refreshments served with punctuality.</div>
         <ul class="sc-check">
@@ -308,10 +353,11 @@
           <li><div class="sc-check-dot"></div> Elegant boardroom setups & presentation</li>
           <li><div class="sc-check-dot"></div> Full service from arrival to pack-up</li>
         </ul>
-        <div class="sc-tag">Most Requested →</div>
+        <div class="sc-tag">Most Requested <i class="fas fa-arrow-right"></i></div>
       </div>
+
       <div class="sc reveal reveal-delay-1">
-        <div class="sc-icon-wrap">🍷</div>
+        <div class="sc-icon-wrap"><i class="fas fa-wine-glass-alt"></i></div>
         <div class="sc-title">Dinners & Banquets</div>
         <div class="sc-desc">Exquisite plated dinners, themed banquets, and celebratory feasts. From intimate gatherings to grand galas, we deliver culinary artistry at every course.</div>
         <ul class="sc-check">
@@ -319,10 +365,11 @@
           <li><div class="sc-check-dot"></div> Premium table settings & décor</li>
           <li><div class="sc-check-dot"></div> Professional waitstaff & service</li>
         </ul>
-        <div class="sc-tag">Premium Service →</div>
+        <div class="sc-tag">Premium Service <i class="fas fa-arrow-right"></i></div>
       </div>
+
       <div class="sc reveal reveal-delay-2">
-        <div class="sc-icon-wrap">🥂</div>
+        <div class="sc-icon-wrap"><i class="fas fa-champagne-glasses"></i></div>
         <div class="sc-title">Cocktail & Social Events</div>
         <div class="sc-desc">Sophisticated finger foods, stylish mocktails, and impeccable service for product launches, private parties, or milestone celebrations.</div>
         <ul class="sc-check">
@@ -330,39 +377,43 @@
           <li><div class="sc-check-dot"></div> Waitstaff & bartender service</li>
           <li><div class="sc-check-dot"></div> Custom styling & presentation</li>
         </ul>
-        <div class="sc-tag">Popular Choice →</div>
+        <div class="sc-tag">Popular Choice <i class="fas fa-arrow-right"></i></div>
       </div>
 
-      <!-- Wide 3-column card -->
-      <div class="sc sc-wide reveal">
-        <div>
-          <div class="sc-icon-wrap">🏛</div>
-          <div class="sc-title">Government Events</div>
-          <div class="sc-desc">Trusted partner for the Department of Health and various provincial departments. Full compliance, hygiene excellence, and large-scale coordination you can count on.</div>
-          <ul class="sc-check">
-            <li><div class="sc-check-dot"></div> Tender-ready execution</li>
-            <li><div class="sc-check-dot"></div> BEE Level 1 compliant & registered</li>
-          </ul>
-        </div>
-        <div>
-          <div class="sc-icon-wrap">⛏</div>
-          <div class="sc-title">Mines & Industrial</div>
-          <div class="sc-desc">Reliable catering for mining operations in Postmasburg and across the Northern Cape. Wholesome meals, shift-friendly schedules, and strict safety compliance.</div>
-          <ul class="sc-check">
-            <li><div class="sc-check-dot"></div> Breakfast, lunch packs & bulk delivery</li>
-            <li><div class="sc-check-dot"></div> On-site canteen support</li>
-          </ul>
-        </div>
-        <div>
-          <div class="sc-icon-wrap">🏢</div>
-          <div class="sc-title">Corporate Functions</div>
-          <div class="sc-desc">Impress clients and employees with upscale corporate event catering. Stylish presentation, efficient service, and memorable flavours at every function.</div>
-          <ul class="sc-check">
-            <li><div class="sc-check-dot"></div> Cocktails, canapés & boardroom breakfasts</li>
-            <li><div class="sc-check-dot"></div> Branded catering options</li>
-          </ul>
-        </div>
+      <!-- Row 2 — three individual cards (previously the wide merged card) -->
+      <div class="sc reveal">
+        <div class="sc-icon-wrap"><i class="fas fa-building"></i></div>
+        <div class="sc-title">Government Events</div>
+        <div class="sc-desc">Trusted partner for the Department of Health and various provincial departments. Full compliance, hygiene excellence, and large-scale coordination you can count on.</div>
+        <ul class="sc-check">
+          <li><div class="sc-check-dot"></div> Tender-ready execution</li>
+          <li><div class="sc-check-dot"></div> BEE Level 1 compliant & registered</li>
+        </ul>
+        <div class="sc-tag">Government Partner <i class="fas fa-arrow-right"></i></div>
       </div>
+
+      <div class="sc reveal reveal-delay-1">
+        <div class="sc-icon-wrap"><i class="fas fa-hard-hat"></i></div>
+        <div class="sc-title">Mines & Industrial</div>
+        <div class="sc-desc">Reliable catering for mining operations in Postmasburg and across the Northern Cape. Wholesome meals, shift-friendly schedules, and strict safety compliance.</div>
+        <ul class="sc-check">
+          <li><div class="sc-check-dot"></div> Breakfast, lunch packs & bulk delivery</li>
+          <li><div class="sc-check-dot"></div> On-site canteen support</li>
+        </ul>
+        <div class="sc-tag">Mining Sector <i class="fas fa-arrow-right"></i></div>
+      </div>
+
+      <div class="sc reveal reveal-delay-2">
+        <div class="sc-icon-wrap"><i class="fas fa-briefcase"></i></div>
+        <div class="sc-title">Corporate Functions</div>
+        <div class="sc-desc">Impress clients and employees with upscale corporate event catering. Stylish presentation, efficient service, and memorable flavours at every function.</div>
+        <ul class="sc-check">
+          <li><div class="sc-check-dot"></div> Cocktails, canapés & boardroom breakfasts</li>
+          <li><div class="sc-check-dot"></div> Branded catering options</li>
+        </ul>
+        <div class="sc-tag">Corporate Excellence <i class="fas fa-arrow-right"></i></div>
+      </div>
+
     </div>
   </div>
 </section>
@@ -380,21 +431,21 @@
         <p class="reveal reveal-delay-2" style="font-size:1rem;color:#6b4e35;line-height:1.85;">Our catering adapts to your venue — office, home, or external event space. We operate from a state-of-the-art kitchen in Postmasburg, ensuring fresh vegetables, premium meats, and dairy are transformed into stunning dishes from scratch.</p>
         <div class="flex-features">
           <div class="ff-item reveal reveal-delay-1">
-            <div class="ff-icon">📅</div>
+            <div class="ff-icon"><i class="fas fa-calendar-alt"></i></div>
             <div>
               <div class="ff-title">Advance Booking Recommended</div>
               <div class="ff-desc">For 50+ guests, book at least 3 days ahead. Last-minute requests accommodated with a day's notice — we value flexibility.</div>
             </div>
           </div>
           <div class="ff-item reveal reveal-delay-2">
-            <div class="ff-icon">👨‍🍳</div>
+            <div class="ff-icon"><i class="fas fa-chef-hat"></i></div>
             <div>
               <div class="ff-title">Chef-Led Quality Control</div>
               <div class="ff-desc">Strict sanitation protocols, artistic presentation, and quality production checks at every event — from 10 to 200+ guests.</div>
             </div>
           </div>
           <div class="ff-item reveal reveal-delay-3">
-            <div class="ff-icon">🤝</div>
+            <div class="ff-icon"><i class="fas fa-handshake"></i></div>
             <div>
               <div class="ff-title">Community Empowerment</div>
               <div class="ff-desc">We employ previously disadvantaged individuals, offering hospitality training and contract opportunities throughout the Northern Cape.</div>
@@ -415,17 +466,17 @@
     </div>
     <div class="why-grid">
       <div class="why-card reveal">
-        <div class="wc-icon">⏱</div>
+        <div class="wc-icon"><i class="fas fa-stopwatch"></i></div>
         <div class="wc-title">Punctuality Guarantee</div>
         <div class="wc-desc">Timely delivery and setup — we respect your schedule and your guests' experience. Late is not in our vocabulary.</div>
       </div>
       <div class="why-card reveal reveal-delay-1">
-        <div class="wc-icon">🧼</div>
+        <div class="wc-icon"><i class="fas fa-soap"></i></div>
         <div class="wc-title">Hygiene First</div>
         <div class="wc-desc">HACCP-inspired protocols, daily deep cleaning, and safe food handling certifications across all our operations.</div>
       </div>
       <div class="why-card reveal reveal-delay-2">
-        <div class="wc-icon">🌿</div>
+        <div class="wc-icon"><i class="fas fa-seedling"></i></div>
         <div class="wc-title">Locally Sourced</div>
         <div class="wc-desc">Supporting Northern Cape farmers, reducing our footprint, and guaranteeing peak freshness in every dish we serve.</div>
       </div>
@@ -451,7 +502,7 @@
           <div class="el-item reveal reveal-delay-3"><div class="el-dot"></div><div class="el-text">Private Dinners & Celebrations</div></div>
         </div>
         <div class="call-strip reveal">
-          <div class="call-strip-icon">📞</div>
+          <div class="call-strip-icon"><i class="fas fa-phone-alt"></i></div>
           <div>
             <div class="call-strip-text">Call for customised menus</div>
             <div class="call-strip-num">+27 82 698 8741</div>
@@ -472,8 +523,8 @@
     <h2 class="cta-title reveal">Ready to Elevate<br><em>Your Next Event?</em></h2>
     <p class="cta-sub reveal reveal-delay-1">Let us create a bespoke menu that leaves a lasting impression. Serving Postmasburg, Kuruman, Kathu, Kimberley & all Northern Cape regions.</p>
     <div class="cta-btns reveal reveal-delay-2">
-      <a href="contact.html" class="btn-cta-primary">Get a Free Quote →</a>
-      <a href="tel:+27826988741" class="btn-cta-ghost">📞 Call Now</a>
+      <a href="contact.html" class="btn-cta-primary">Get a Free Quote <i class="fas fa-arrow-right"></i></a>
+      <a href="tel:+27826988741" class="btn-cta-ghost"><i class="fas fa-phone-alt"></i> Call Now</a>
     </div>
   </div>
 </section>
@@ -485,7 +536,7 @@
       <div>
         <div class="footer-brand-name">Elizabeth Segametse Brits Trading</div>
         <p class="footer-tagline">Premium catering excellence for government, mining, and corporate clients across the Northern Cape.</p>
-        <div class="bee-badge" style="margin-top:1.5rem;">✦ BEE Level 1 Certified</div>
+        <div class="bee-badge" style="margin-top:1.5rem;"><i class="fas fa-star"></i> BEE Level 1 Certified</div>
       </div>
       <div>
         <div class="footer-col-title">Quick Links</div>
@@ -493,16 +544,15 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
           <li><a href="services.html">Services</a></li>
-          <li><a href="index.html#track">Track Record</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
       <div>
         <div class="footer-col-title">Contact</div>
         <ul class="footer-links">
-          <li><a href="tel:+27826988741">+27 82 698 8741</a></li>
-          <li><a href="mailto:catering@elizabethbrits.co.za">catering@elizabethbrits.co.za</a></li>
-          <li><a href="#">1214 Jacob Zuma Street</a></li>
+          <li><a href="tel:+27826988741"><i class="fas fa-phone-alt"></i> +27 82 698 8741</a></li>
+          <li><a href="mailto:catering@elizabethbrits.co.za"><i class="fas fa-envelope"></i> catering@elizabethbrits.co.za</a></li>
+          <li><a href="#"><i class="fas fa-map-marker-alt"></i> 1214 Jacob Zuma Street</a></li>
           <li><a href="#">Boichoko, Postmasburg 8420</a></li>
         </ul>
       </div>

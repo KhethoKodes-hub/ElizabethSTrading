@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact | Elizabeth Segametse Brits Trading – Premium Catering Northern Cape</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
     :root {
       --cream: #fdf8f0;
@@ -20,6 +21,40 @@
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--espresso); overflow-x: hidden; }
 
+    /* ─── LUCIDE ICONS ─── */
+    .icon { display: inline-flex; align-items: center; justify-content: center; }
+    .icon svg { width: 1em; height: 1em; stroke-width: 1.8; vertical-align: middle; }
+    /* nav brand mark */
+    .nav-brand-mark .icon svg { width: 18px; height: 18px; stroke: #fff; stroke-width: 2; }
+    /* hero buttons */
+    .btn-primary-hero .icon svg,
+    .btn-ghost-hero .icon svg { width: 15px; height: 15px; stroke: #fff; stroke-width: 2.2; }
+    /* contact detail icons */
+    .cd-icon .icon svg { width: 22px; height: 22px; stroke: #fff; stroke-width: 2; }
+    /* booking note icon */
+    .bn-label .icon svg { width: 12px; height: 12px; stroke: var(--gold); stroke-width: 2.2; }
+    /* form submit & secure */
+    .btn-submit .icon svg { width: 15px; height: 15px; stroke: #fff; stroke-width: 2.2; }
+    .form-secure .icon svg { width: 12px; height: 12px; stroke: var(--mid-brown); stroke-width: 2.2; }
+    /* form success icon */
+    .form-success-icon .icon svg { width: 48px; height: 48px; stroke: #4caf50; stroke-width: 1.5; }
+    /* map tags */
+    .map-tag .icon svg { width: 12px; height: 12px; stroke: rgba(253,248,240,0.7); stroke-width: 2; }
+    /* btn-maps */
+    .btn-maps .icon svg { width: 15px; height: 15px; stroke: #fff; stroke-width: 2.2; }
+    /* area card icons */
+    .ac-icon-wrap .icon svg { width: 24px; height: 24px; stroke: var(--warm-brown); stroke-width: 1.8; }
+    .area-card:hover .ac-icon-wrap .icon svg { stroke: #fff; }
+    /* cta strip buttons */
+    .btn-strip-primary .icon svg,
+    .btn-strip-ghost .icon svg { width: 15px; height: 15px; stroke: #fff; stroke-width: 2.2; }
+    /* footer bee badge */
+    .bee-badge .icon svg { width: 12px; height: 12px; stroke: var(--gold); stroke-width: 2; }
+    /* footer links */
+    .footer-links .icon svg { width: 12px; height: 12px; stroke: rgba(253,248,240,0.55); stroke-width: 2; }
+    /* breadcrumb chevron */
+    .hero-breadcrumb .icon svg { width: 12px; height: 12px; stroke: var(--gold); stroke-width: 2.5; }
+
     /* ─── CURSOR ─── */
     .cursor-dot { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.08s ease; }
     .cursor-ring { width: 36px; height: 36px; border: 1.5px solid var(--warm-brown); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9998; transform: translate(-50%,-50%); transition: transform 0.22s ease, width 0.25s, height 0.25s, opacity 0.25s; opacity: 0.6; }
@@ -30,7 +65,7 @@
     .navbar.scrolled { padding: 0.8rem 0; background: rgba(253,248,240,0.92); box-shadow: 0 4px 32px rgba(90,53,32,0.08); }
     .nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 2.5rem; display: flex; align-items: center; justify-content: space-between; }
     .nav-brand { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--dark-brown); text-decoration: none; letter-spacing: 0.02em; display: flex; align-items: center; gap: 0.6rem; }
-    .nav-brand-mark { width: 36px; height: 36px; background: linear-gradient(135deg, var(--warm-brown), var(--gold)); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+    .nav-brand-mark { width: 36px; height: 36px; background: linear-gradient(135deg, var(--warm-brown), var(--gold)); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
     .nav-links { display: flex; list-style: none; gap: 2.5rem; align-items: center; }
     .nav-links a { font-size: 0.875rem; font-weight: 500; color: var(--mid-brown); text-decoration: none; letter-spacing: 0.05em; text-transform: uppercase; position: relative; transition: color 0.3s; }
     .nav-links a::after { content: ''; position: absolute; bottom: -4px; left: 0; width: 0; height: 1px; background: var(--gold); transition: width 0.35s ease; }
@@ -43,17 +78,8 @@
     .nav-hamburger span { display: block; width: 24px; height: 1.5px; background: var(--dark-brown); transition: all 0.3s; }
 
     /* ─── HERO ─── */
-    .hero {
-      position: relative; width: 100%; height: 80vh; min-height: 580px;
-      overflow: hidden; display: flex; align-items: center; justify-content: center;
-    }
-    .hero-bg {
-      position: absolute; inset: 0;
-      background-image: url('./assets/hero5.png');
-      background-size: cover; background-position: center 40%;
-      z-index: 0; transform: scale(1.04);
-      animation: slowZoom 14s ease forwards;
-    }
+    .hero { position: relative; width: 100%; height: 80vh; min-height: 580px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+    .hero-bg { position: absolute; inset: 0; background-image: url('./assets/conthero2.png'); background-size: cover; background-position: center 40%; z-index: 0; transform: scale(1.04); animation: slowZoom 14s ease forwards; }
     @keyframes slowZoom { from{transform:scale(1.04)} to{transform:scale(1)} }
     .hero-veil { position: absolute; inset: 0; z-index: 1; background: linear-gradient(110deg, rgba(28,12,4,0.78) 0%, rgba(46,28,14,0.55) 45%, rgba(90,53,32,0.2) 75%, transparent 100%); }
     .hero-fade-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 200px; z-index: 2; background: linear-gradient(to top, var(--cream) 0%, transparent 100%); }
@@ -95,82 +121,47 @@
     /* ─── MAIN CONTACT SECTION ─── */
     .contact-grid { display: grid; grid-template-columns: 1fr 1.3fr; gap: 4rem; align-items: start; }
 
-    /* Info column */
     .contact-details { display: flex; flex-direction: column; gap: 1rem; margin-top: 2.2rem; }
-    .cd-item {
-      display: flex; gap: 1.2rem; align-items: center;
-      padding: 1.2rem 1.4rem;
-      background: rgba(255,252,244,0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
-      border: 1px solid var(--beige); border-radius: 18px;
-      transition: all 0.35s; text-decoration: none;
-    }
+    .cd-item { display: flex; gap: 1.2rem; align-items: center; padding: 1.2rem 1.4rem; background: rgba(255,252,244,0.7); backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px); border: 1px solid var(--beige); border-radius: 18px; transition: all 0.35s; text-decoration: none; }
     .cd-item:hover { transform: translateX(6px); border-color: var(--warm-brown); box-shadow: 0 8px 24px rgba(196,154,108,0.12); }
-    .cd-icon { width: 46px; height: 46px; background: linear-gradient(135deg,var(--warm-brown),var(--gold)); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+    .cd-icon { width: 46px; height: 46px; background: linear-gradient(135deg,var(--warm-brown),var(--gold)); border-radius: 14px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
     .cd-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--mid-brown); }
     .cd-value { font-size: 0.95rem; font-weight: 500; color: var(--dark-brown); margin-top: 0.1rem; }
 
-    /* Hours card */
-    .hours-card {
-      margin-top: 1rem;
-      padding: 1.6rem;
-      background: var(--dark-brown); border-radius: 20px;
-    }
+    .hours-card { margin-top: 1rem; padding: 1.6rem; background: var(--dark-brown); border-radius: 20px; }
     .hours-title { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 500; font-style: italic; color: var(--gold); margin-bottom: 1rem; }
     .hours-row { display: flex; justify-content: space-between; align-items: center; padding: 0.55rem 0; border-bottom: 1px solid rgba(255,252,244,0.08); }
     .hours-row:last-child { border-bottom: none; }
     .hours-day { font-size: 0.82rem; color: rgba(253,248,240,0.6); }
     .hours-time { font-size: 0.82rem; font-weight: 500; color: rgba(253,248,240,0.9); }
-    .booking-note {
-      margin-top: 1rem; padding: 1.2rem 1.4rem;
-      background: rgba(255,252,244,0.06); border-radius: 14px;
-      border: 1px solid rgba(212,168,83,0.2);
-    }
-    .bn-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold); font-weight: 600; margin-bottom: 0.4rem; }
+    .booking-note { margin-top: 1rem; padding: 1.2rem 1.4rem; background: rgba(255,252,244,0.06); border-radius: 14px; border: 1px solid rgba(212,168,83,0.2); }
+    .bn-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold); font-weight: 600; margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.4rem; }
     .bn-text { font-size: 0.82rem; color: rgba(253,248,240,0.6); line-height: 1.6; }
 
-    /* Form glass card */
-    .form-card {
-      background: rgba(255,252,244,0.5);
-      backdrop-filter: blur(24px) saturate(160%);
-      -webkit-backdrop-filter: blur(24px) saturate(160%);
-      border: 1px solid rgba(232,217,192,0.7);
-      border-radius: 32px; padding: 3rem;
-      box-shadow: 0 20px 60px rgba(90,53,32,0.08);
-    }
+    .form-card { background: rgba(255,252,244,0.5); backdrop-filter: blur(24px) saturate(160%); -webkit-backdrop-filter: blur(24px) saturate(160%); border: 1px solid rgba(232,217,192,0.7); border-radius: 32px; padding: 3rem; box-shadow: 0 20px 60px rgba(90,53,32,0.08); }
     .form-title { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: var(--dark-brown); margin-bottom: 0.4rem; }
     .form-sub { font-size: 0.88rem; color: var(--mid-brown); margin-bottom: 2rem; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .form-group { margin-bottom: 1.1rem; }
     .form-label { display: block; font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--mid-brown); margin-bottom: 0.55rem; }
-    .form-input {
-      width: 100%; padding: 0.9rem 1.3rem;
-      background: rgba(255,252,244,0.8); border: 1px solid var(--beige);
-      border-radius: 14px; font-family: 'DM Sans', sans-serif;
-      font-size: 0.92rem; color: var(--espresso); outline: none; transition: all 0.3s;
-    }
+    .form-input { width: 100%; padding: 0.9rem 1.3rem; background: rgba(255,252,244,0.8); border: 1px solid var(--beige); border-radius: 14px; font-family: 'DM Sans', sans-serif; font-size: 0.92rem; color: var(--espresso); outline: none; transition: all 0.3s; }
     .form-input:focus { border-color: var(--warm-brown); background: #fff; box-shadow: 0 0 0 3px rgba(196,154,108,0.12); }
     .form-input::placeholder { color: rgba(90,53,32,0.3); }
     textarea.form-input { resize: none; }
     select.form-input { cursor: pointer; }
-    .btn-submit {
-      width: 100%; padding: 1.1rem;
-      background: linear-gradient(135deg,var(--dark-brown),var(--mid-brown));
-      color: #fff; font-family: 'DM Sans', sans-serif;
-      font-size: 0.95rem; font-weight: 600; letter-spacing: 0.06em;
-      border: none; border-radius: 14px; cursor: pointer; transition: all 0.35s; margin-top: 0.5rem;
-    }
+    .btn-submit { width: 100%; padding: 1.1rem; background: linear-gradient(135deg,var(--dark-brown),var(--mid-brown)); color: #fff; font-family: 'DM Sans', sans-serif; font-size: 0.95rem; font-weight: 600; letter-spacing: 0.06em; border: none; border-radius: 14px; cursor: pointer; transition: all 0.35s; margin-top: 0.5rem; display: flex; align-items: center; justify-content: center; gap: 0.6rem; }
     .btn-submit:hover { background: linear-gradient(135deg,var(--warm-brown),var(--gold)); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(196,154,108,0.3); }
-    .form-secure { text-align: center; font-size: 0.75rem; color: var(--mid-brown); margin-top: 0.8rem; }
+    .form-secure { text-align: center; font-size: 0.75rem; color: var(--mid-brown); margin-top: 0.8rem; display: flex; align-items: center; justify-content: center; gap: 0.4rem; }
 
-    /* Success message */
     .form-success { display: none; text-align: center; padding: 2rem; }
-    .form-success-icon { font-size: 3rem; margin-bottom: 1rem; }
+    .form-success-icon { margin-bottom: 1rem; }
     .form-success-title { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 600; color: var(--dark-brown); }
     .form-success-text { font-size: 0.92rem; color: var(--mid-brown); margin-top: 0.5rem; }
 
     /* ─── MAP SECTION ─── */
-    .map-section-bg { background: linear-gradient(160deg,#fdf8f0,#f5ead8); }
-    .map-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 32px; overflow: hidden; box-shadow: 0 20px 56px rgba(90,53,32,0.1); }
+    .map-section-bg { background: linear-gradient(160deg,#fdf8f0,#f5ead8); position: relative; }
+    .map-section-bg::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background-image: url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1600'); background-size: cover; background-position: center; opacity: 0.08; pointer-events: none; }
+    .map-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 32px; overflow: hidden; box-shadow: 0 20px 56px rgba(90,53,32,0.1); position: relative; z-index: 1; }
     .map-info { background: var(--dark-brown); padding: 3.5rem; }
     .map-info-title { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: #fff; margin-bottom: 1rem; }
     .map-info-title em { font-style: italic; color: var(--gold); }
@@ -185,28 +176,19 @@
 
     /* ─── SERVICE AREA CARDS ─── */
     .area-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
-    .area-card {
-      background: rgba(255,252,244,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(232,217,192,0.6); border-radius: 24px; padding: 2.2rem;
-      transition: all 0.4s cubic-bezier(0.23,1,0.32,1); position: relative; overflow: hidden;
-    }
+    .area-card { background: rgba(255,252,244,0.7); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); border: 1px solid rgba(232,217,192,0.6); border-radius: 24px; padding: 2.2rem; transition: all 0.4s cubic-bezier(0.23,1,0.32,1); position: relative; overflow: hidden; }
     .area-card::before { content: ''; position: absolute; inset: 0; background: linear-gradient(135deg,var(--warm-brown),var(--gold)); opacity: 0; transition: opacity 0.45s; border-radius: inherit; }
     .area-card:hover { transform: translateY(-8px); box-shadow: 0 24px 56px rgba(90,53,32,0.14); }
     .area-card:hover::before { opacity: 1; }
     .area-card * { position: relative; z-index: 1; }
     .area-card:hover .ac-icon-wrap { background: rgba(255,255,255,0.2); }
     .area-card:hover .ac-title, .area-card:hover .ac-desc { color: #fff; }
-    .ac-icon-wrap { width: 52px; height: 52px; background: var(--cream-deep,#f5ead8); border-radius: 14px; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin-bottom: 1.2rem; transition: background 0.3s; }
+    .ac-icon-wrap { width: 52px; height: 52px; background: var(--cream-deep); border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 1.2rem; transition: background 0.3s; }
     .ac-title { font-family: 'Cormorant Garamond', serif; font-size: 1.35rem; font-weight: 600; color: var(--dark-brown); margin-bottom: 0.7rem; transition: color 0.3s; }
     .ac-desc { font-size: 0.88rem; color: var(--mid-brown); line-height: 1.75; transition: color 0.3s; }
 
     /* ─── CTA STRIP ─── */
-    .cta-strip {
-      background: linear-gradient(135deg, var(--espresso), #4a2a15);
-      border-radius: 28px; padding: 3.5rem;
-      display: flex; align-items: center; justify-content: space-between; gap: 2rem;
-    }
-    .cta-strip-text {}
+    .cta-strip { background: linear-gradient(135deg, var(--espresso), #4a2a15); border-radius: 28px; padding: 3.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; }
     .cta-strip-title { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: #fff; margin-bottom: 0.5rem; }
     .cta-strip-title em { font-style: italic; color: var(--gold); }
     .cta-strip-sub { font-size: 0.92rem; color: rgba(253,248,240,0.55); }
@@ -224,7 +206,7 @@
     .footer-tagline { font-size: 0.88rem; color: rgba(253,248,240,0.5); line-height: 1.7; max-width: 280px; }
     .footer-col-title { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 1.2rem; }
     .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.7rem; }
-    .footer-links a { font-size: 0.88rem; color: rgba(253,248,240,0.55); text-decoration: none; transition: color 0.25s; }
+    .footer-links a { font-size: 0.88rem; color: rgba(253,248,240,0.55); text-decoration: none; transition: color 0.25s; display: inline-flex; align-items: center; gap: 0.5rem; }
     .footer-links a:hover { color: var(--cream); }
     .footer-bottom { display: flex; justify-content: space-between; align-items: center; padding-top: 2rem; font-size: 0.78rem; color: rgba(253,248,240,0.35); }
     .bee-badge { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.35rem 0.9rem; background: rgba(212,168,83,0.12); border: 1px solid rgba(212,168,83,0.25); border-radius: 50px; color: var(--gold); font-size: 0.72rem; font-weight: 600; letter-spacing: 0.08em; }
@@ -259,14 +241,13 @@
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
     <a href="index.html" class="nav-brand">
-      <div class="nav-brand-mark">🍽</div>
+      <div class="nav-brand-mark"><span class="icon"><i data-lucide="utensils"></i></span></div>
       Elizabeth S. Brits
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
-      <li><a href="index.html#track">Track Record</a></li>
       <li><a href="contact.html" class="active nav-cta">Get a Quote</a></li>
     </ul>
     <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
@@ -283,16 +264,16 @@
     <h1 class="hero-title">Let's Bring Your<br><em>Event</em> to Life</h1>
     <p class="hero-sub">Reach out for tailored catering quotes, menu inquiries, or event coordination. We're ready to serve you anywhere across the Northern Cape.</p>
     <div class="hero-actions">
-      <a href="#contact-form" class="btn-primary-hero">Send an Inquiry →</a>
-      <a href="tel:+27826988741" class="btn-ghost-hero">📞 Call Now</a>
+      <a href="#contact-form" class="btn-primary-hero">Send an Inquiry <span class="icon"><i data-lucide="arrow-right"></i></span></a>
+      <a href="tel:+27826988741" class="btn-ghost-hero"><span class="icon"><i data-lucide="phone"></i></span> Call Now</a>
     </div>
   </div>
   <div class="hero-breadcrumb">
-    <a href="index.html">Home</a><span>›</span><span style="color:rgba(255,255,255,0.7);">Contact</span>
+    <a href="index.html">Home</a>
+    <span class="icon"><i data-lucide="chevron-right"></i></span>
+    <span style="color:rgba(255,255,255,0.7);">Contact</span>
   </div>
 </section>
-
-
 
 <!-- ═══ MAIN CONTACT ═══ -->
 <section id="contact-form">
@@ -307,21 +288,21 @@
 
         <div class="contact-details">
           <a href="tel:+27826988741" class="cd-item reveal reveal-delay-1">
-            <div class="cd-icon">📞</div>
+            <div class="cd-icon"><span class="icon"><i data-lucide="phone"></i></span></div>
             <div>
               <div class="cd-label">Phone / WhatsApp</div>
               <div class="cd-value">+27 82 698 8741</div>
             </div>
           </a>
           <a href="mailto:catering@elizabethbrits.co.za" class="cd-item reveal reveal-delay-2">
-            <div class="cd-icon">✉️</div>
+            <div class="cd-icon"><span class="icon"><i data-lucide="mail"></i></span></div>
             <div>
               <div class="cd-label">Email Address</div>
               <div class="cd-value">catering@elizabethbrits.co.za</div>
             </div>
           </a>
           <div class="cd-item reveal reveal-delay-3" style="cursor:default;">
-            <div class="cd-icon">📍</div>
+            <div class="cd-icon"><span class="icon"><i data-lucide="map-pin"></i></span></div>
             <div>
               <div class="cd-label">Physical Address</div>
               <div class="cd-value">1214 Jacob Zuma Street, Boichoko, Postmasburg, 8420</div>
@@ -344,7 +325,7 @@
             <div class="hours-time">By arrangement</div>
           </div>
           <div class="booking-note">
-            <div class="bn-label">📅 Booking Advisory</div>
+            <div class="bn-label"><span class="icon"><i data-lucide="calendar"></i></span> Booking Advisory</div>
             <div class="bn-text">Book at least 2 days in advance for smooth delivery. Last-minute requests accommodated with 1 day's notice — we're flexible!</div>
           </div>
         </div>
@@ -403,12 +384,12 @@
               <label class="form-label">Message / Menu Preferences *</label>
               <textarea class="form-input" rows="4" placeholder="Tell us about your vision, dietary requirements, venue details, or any special requests..." required></textarea>
             </div>
-            <button type="submit" class="btn-submit">Send Inquiry →</button>
-            <div class="form-secure">🔒 Your details are safe with us. We reply within 24 hours.</div>
+            <button type="submit" class="btn-submit">Send Inquiry <span class="icon"><i data-lucide="arrow-right"></i></span></button>
+            <div class="form-secure"><span class="icon"><i data-lucide="lock"></i></span> Your details are safe with us. We reply within 24 hours.</div>
           </form>
         </div>
         <div class="form-success" id="formSuccess">
-          <div class="form-success-icon">✅</div>
+          <div class="form-success-icon"><span class="icon"><i data-lucide="circle-check"></i></span></div>
           <div class="form-success-title">Message Sent!</div>
           <div class="form-success-text">Thank you for reaching out. Elizabeth Segametse Brits Trading will get back to you within 24 hours.</div>
         </div>
@@ -417,7 +398,7 @@
   </div>
 </section>
 
-<!-- ═══ MAP ═══ -->
+<!-- ═══ MAP SECTION ═══ -->
 <section class="section-full map-section-bg">
   <div class="section-inner">
     <div style="text-align:center;max-width:580px;margin:0 auto 3.5rem;">
@@ -430,13 +411,13 @@
         <div class="map-info-title">Postmasburg,<br><em>Northern Cape</em></div>
         <div class="map-info-body">Our fully-equipped kitchen is based in Postmasburg, and we deliver excellence across the entire Northern Cape region. In-person consultations available by appointment.</div>
         <div class="map-tags">
-          <div class="map-tag">📍 Postmasburg</div>
-          <div class="map-tag">🏙 Kuruman</div>
-          <div class="map-tag">⛏ Kathu</div>
-          <div class="map-tag">🏛 Kimberley</div>
-          <div class="map-tag">🌅 Upington</div>
+          <div class="map-tag"><span class="icon"><i data-lucide="map-pin"></i></span> Postmasburg</div>
+          <div class="map-tag"><span class="icon"><i data-lucide="building-2"></i></span> Kuruman</div>
+          <div class="map-tag"><span class="icon"><i data-lucide="hard-hat"></i></span> Kathu</div>
+          <div class="map-tag"><span class="icon"><i data-lucide="landmark"></i></span> Kimberley</div>
+          <div class="map-tag"><span class="icon"><i data-lucide="sun"></i></span> Upington</div>
         </div>
-        <a href="https://maps.google.com/?q=1214+Jacob+Zuma+Street+Boichoko+Postmasburg+8420" target="_blank" class="btn-maps">Open in Google Maps →</a>
+        <a href="https://maps.google.com/?q=1214+Jacob+Zuma+Street+Boichoko+Postmasburg+8420" target="_blank" class="btn-maps">Open in Google Maps <span class="icon"><i data-lucide="arrow-right"></i></span></a>
         <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid rgba(255,252,244,0.1);">
           <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.15em;color:var(--gold);font-weight:600;margin-bottom:0.5rem;">Reg. Number</div>
           <div style="font-size:0.88rem;color:rgba(253,248,240,0.55);">2012/148956/07</div>
@@ -458,31 +439,30 @@
     </div>
     <div class="area-grid">
       <div class="area-card reveal">
-        <div class="ac-icon-wrap">🗺</div>
+        <div class="ac-icon-wrap"><span class="icon"><i data-lucide="map"></i></span></div>
         <div class="ac-title">Northern Cape Wide</div>
         <div class="ac-desc">Postmasburg, Kathu, Kuruman, Kimberley, Upington, and surrounding mining towns. We deliver excellence anywhere in the province.</div>
       </div>
       <div class="area-card reveal reveal-delay-1">
-        <div class="ac-icon-wrap">🗂</div>
+        <div class="ac-icon-wrap"><span class="icon"><i data-lucide="clipboard-list"></i></span></div>
         <div class="ac-title">Event Coordination</div>
         <div class="ac-desc">Beyond catering — we assist with logistics, staffing, and event flow. Let us handle the details so you can focus on your guests.</div>
       </div>
       <div class="area-card reveal reveal-delay-2">
-        <div class="ac-icon-wrap">🤲</div>
+        <div class="ac-icon-wrap"><span class="icon"><i data-lucide="handshake"></i></span></div>
         <div class="ac-title">BEE & Community</div>
         <div class="ac-desc">As a Level 1 BEE contributor, we prioritise local hiring and sustainable practices. Partner with us and empower the Northern Cape.</div>
       </div>
     </div>
 
-    <!-- CTA strip -->
     <div class="cta-strip reveal" style="margin-top:3rem;">
       <div class="cta-strip-text">
         <div class="cta-strip-title">Need a <em>Tailored Proposal?</em></div>
         <div class="cta-strip-sub">For large-scale events, government tenders, or monthly catering contracts — reach out directly.</div>
       </div>
       <div class="cta-strip-btns">
-        <a href="tel:+27826988741" class="btn-strip-primary">📞 +27 82 698 8741</a>
-        <a href="mailto:catering@elizabethbrits.co.za" class="btn-strip-ghost">✉️ Email Us</a>
+        <a href="tel:+27826988741" class="btn-strip-primary"><span class="icon"><i data-lucide="phone"></i></span> +27 82 698 8741</a>
+        <a href="mailto:catering@elizabethbrits.co.za" class="btn-strip-ghost"><span class="icon"><i data-lucide="mail"></i></span> Email Us</a>
       </div>
     </div>
   </div>
@@ -495,7 +475,7 @@
       <div>
         <div class="footer-brand-name">Elizabeth Segametse Brits Trading</div>
         <p class="footer-tagline">Premium catering excellence for government, mining, and corporate clients across the Northern Cape.</p>
-        <div class="bee-badge" style="margin-top:1.5rem;">✦ BEE Level 1 Certified</div>
+        <div class="bee-badge" style="margin-top:1.5rem;"><span class="icon"><i data-lucide="award"></i></span> BEE Level 1 Certified</div>
       </div>
       <div>
         <div class="footer-col-title">Quick Links</div>
@@ -510,9 +490,9 @@
       <div>
         <div class="footer-col-title">Contact</div>
         <ul class="footer-links">
-          <li><a href="tel:+27826988741">+27 82 698 8741</a></li>
-          <li><a href="mailto:catering@elizabethbrits.co.za">catering@elizabethbrits.co.za</a></li>
-          <li><a href="#">1214 Jacob Zuma Street</a></li>
+          <li><a href="tel:+27826988741"><span class="icon"><i data-lucide="phone"></i></span> +27 82 698 8741</a></li>
+          <li><a href="mailto:catering@elizabethbrits.co.za"><span class="icon"><i data-lucide="mail"></i></span> catering@elizabethbrits.co.za</a></li>
+          <li><a href="#"><span class="icon"><i data-lucide="map-pin"></i></span> 1214 Jacob Zuma Street</a></li>
           <li><a href="#">Boichoko, Postmasburg 8420</a></li>
           <li><a href="#">Reg. 2012/148956/07</a></li>
         </ul>
@@ -526,7 +506,10 @@
 </footer>
 
 <script>
-  // Cursor
+  // ─── LUCIDE ICONS ───
+  lucide.createIcons();
+
+  // ─── CURSOR ───
   const dot=document.getElementById('cursorDot'),ring=document.getElementById('cursorRing');
   let mx=0,my=0,rx=0,ry=0;
   document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px';});
@@ -536,17 +519,17 @@
     el.addEventListener('mouseleave',()=>ring.classList.remove('hovered'));
   });
 
-  // Navbar
+  // ─── NAVBAR ───
   window.addEventListener('scroll',()=>document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>60));
 
-  // Form submit
+  // ─── FORM SUBMIT ───
   document.getElementById('contactForm').addEventListener('submit',function(e){
     e.preventDefault();
     document.getElementById('formWrap').style.display='none';
     document.getElementById('formSuccess').style.display='block';
   });
 
-  // Scroll reveal
+  // ─── SCROLL REVEAL ───
   const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:0.12});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 </script>

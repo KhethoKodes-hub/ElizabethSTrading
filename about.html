@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us | Elizabeth Segametse Brits Trading – Premium Catering Northern Cape</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
   <style>
     :root {
       --cream: #fdf8f0;
@@ -21,6 +22,19 @@
     * { margin: 0; padding: 0; box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--espresso); overflow-x: hidden; }
+
+    /* ─── LUCIDE ICONS ─── */
+    .icon { display: inline-flex; align-items: center; justify-content: center; }
+    .icon svg { width: 1.1em; height: 1.1em; stroke-width: 1.8; vertical-align: middle; }
+    .mv-icon-wrap .icon svg { width: 28px; height: 28px; stroke: var(--warm-brown); }
+    .mc-icon-wrap .icon svg { width: 24px; height: 24px; stroke: var(--warm-brown); }
+    .pf-icon .icon svg { width: 22px; height: 22px; stroke: var(--warm-brown); }
+    .cpill .icon svg { width: 13px; height: 13px; stroke: var(--mid-brown); stroke-width: 2; }
+    .btag .icon svg { width: 13px; height: 13px; stroke: rgba(253,248,240,0.75); stroke-width: 2; }
+    .nav-brand-mark .icon svg { width: 18px; height: 18px; stroke: #fff; stroke-width: 2; }
+    .bee-badge .icon svg { width: 13px; height: 13px; stroke: var(--gold); stroke-width: 2; }
+    .mv-card:hover .mv-icon-wrap .icon svg { stroke: #fff; }
+    .pfc-num .icon svg { width: 18px; height: 18px; stroke: var(--gold); fill: var(--gold); stroke-width: 1; }
 
     /* ─── CURSOR ─── */
     .cursor-dot { width: 8px; height: 8px; background: var(--gold); border-radius: 50%; position: fixed; top: 0; left: 0; pointer-events: none; z-index: 9999; transform: translate(-50%,-50%); transition: transform 0.08s ease; }
@@ -57,7 +71,8 @@
     }
     .hero-bg {
       position: absolute; inset: 0;
-      background-image: url('./assets/hero2.png');
+      /* Elegant catering banquet table setup with food spread */
+      background-image: url('./assets/chefafri2.png');
       background-size: cover;
       background-position: center 30%;
       z-index: 0;
@@ -201,7 +216,24 @@
     .quote-attr { font-size: 0.8rem; font-weight: 600; color: var(--mid-brown); margin-top: 0.8rem; padding-left: 2rem; letter-spacing: 0.04em; }
 
     /* ─── MISSION VISION ─── */
-    .mv-bg { background: linear-gradient(160deg, #fdf8f0, #f5ead8, #ede0cc); }
+    .mv-bg { 
+      background: linear-gradient(160deg, #fdf8f0, #f5ead8, #ede0cc);
+      position: relative;
+    }
+    .mv-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      /* Catering buffet spread / food service */
+      background-image: url('');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.15;
+      pointer-events: none;
+    }
     .mv-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.8rem; }
     .mv-card {
       background: rgba(255,252,244,0.65);
@@ -288,7 +320,24 @@
     .btn-ghost:hover { border-color: var(--dark-brown); transform: translateY(-2px); }
 
     /* ─── STATS ─── */
-    .stats-bg { background: var(--espresso); }
+    .stats-bg { 
+      background: var(--espresso);
+      position: relative;
+    }
+    .stats-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      /* Professional catering event / banquet hall service */
+      background-image: url('./assets/govcatering.png');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.2;
+      pointer-events: none;
+    }
     .stats-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; }
     .stat-card {
       background: rgba(255,252,244,0.06);
@@ -315,6 +364,7 @@
       border-radius: 20px; padding: 1.4rem 1.6rem;
       box-shadow: 0 12px 36px rgba(46,28,14,0.15);
       max-width: 200px;
+      
     }
     .pfc-num { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 600; color: var(--dark-brown); }
     .pfc-label { font-size: 0.75rem; color: var(--mid-brown); margin-top: 0.2rem; }
@@ -338,8 +388,25 @@
       font-size: 0.9rem; font-style: italic; color: #6b4e35; line-height: 1.7;
     }
 
-    /* ─── MEDIA ─── */
-    .media-bg { background: linear-gradient(160deg, #fdf8f0, #f5ead8); }
+    /* ─── MEDIA ─── */ 
+    .media-bg { 
+      background: linear-gradient(160deg, #fdf8f0, #f5ead8);
+      position: relative;
+    }
+    .media-bg::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      /* Professional chef plating / kitchen cooking */
+      background-image: url('');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.12;
+      pointer-events: none;
+    }
     .media-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 3.5rem; }
     .media-card {
       background: rgba(255,252,244,0.7);
@@ -366,6 +433,7 @@
 
     /* ─── CTA ─── */
     .cta-section {
+      /* Beautifully plated fine-dining catering event */
       background-image: url('./assets/footerimg2.png');
       background-size: cover; background-position: center;
       position: relative;
@@ -441,7 +509,7 @@
 <nav class="navbar" id="navbar">
   <div class="nav-inner">
     <a href="index.html" class="nav-brand">
-      <div class="nav-brand-mark">🍽</div>
+      <div class="nav-brand-mark"><span class="icon"><i data-lucide="utensils"></i></span></div>
       Elizabeth S. Brits
     </a>
     <ul class="nav-links">
@@ -462,65 +530,15 @@
   <div class="hero-veil"></div>
   <div class="hero-fade-bottom"></div>
   <div class="hero-content">
-    <!--<div class="hero-eyebrow">
-      <div class="hero-eyebrow-dot"></div>
-      Black Empowered · Est. 2012 · Postmasburg, Northern Cape
-    </div>-->
     <h1 class="hero-title">Our Story,<br><em>Crafted</em> with Heart</h1>
     <p class="hero-sub">From a single vision to Northern Cape's most trusted catering enterprise — built on integrity, community, and culinary excellence.</p>
-    <!--<div class="hero-stats-row">
-      <div class="hero-stat-pill">
-        <div class="hsp-num">12+</div>
-        <div class="hsp-label">Years of<br>Excellence</div>
-      </div>
-      <div class="hero-stat-pill">
-        <div class="hsp-num">200+</div>
-        <div class="hsp-label">Events<br>Yearly</div>
-      </div>
-      <div class="hero-stat-pill">
-        <div class="hsp-num">BEE 1</div>
-        <div class="hsp-label">Fully<br>Compliant</div>
-      </div>
-      <div class="hero-stat-pill">
-        <div class="hsp-num">5+</div>
-        <div class="hsp-label">Districts<br>Served</div>
-      </div>
-    </div>-->
   </div>
   <div class="hero-breadcrumb">
     <a href="index.html">Home</a>
-    <span>›</span>
+    <span><i data-lucide="chevron-right" style="width:12px;height:12px;stroke:var(--gold);display:inline-block;vertical-align:middle;"></i></span>
     <span style="color:rgba(255,255,255,0.7);">About Us</span>
   </div>
 </section>
-
-
-<!-- ═══ FOUNDER ═══ 
-<section>
-  <div class="section">
-    <div class="founder-grid">
-      <div class="founder-img-wrap reveal">
-        <img class="founder-img" src="https://images.pexels.com/photos/3814446/pexels-photo-3814446.jpeg?auto=compress&cs=tinysrgb&w=900" alt="Elizabeth Segametse Brits">
-        <img class="founder-accent" src="https://images.pexels.com/photos/6419719/pexels-photo-6419719.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Catering detail">
-        <div class="founder-badge">
-          <div class="fb-num">2012</div>
-          <div class="fb-label">Founded in<br>Postmasburg</div>
-        </div>
-      </div>
-      <div>
-        <div class="tag reveal"><div class="tag-line"></div> The Founder</div>
-        <h2 class="section-heading reveal reveal-delay-1">Meet Elizabeth<br><em>Segametse Brits</em></h2>
-        <p class="founder-body reveal reveal-delay-2">A visionary entrepreneur and former Sanlam financial adviser of 10+ years, Elizabeth transformed her passion for people and service into one of the most trusted catering companies in the Northern Cape.</p>
-        <p class="founder-body reveal reveal-delay-2" style="margin-top:1rem;">Founded in 2012 as a 100% Black-owned BEE enterprise, what started as a small-scale catering dream is now a sought-after name for government departments, local mines, private businesses, and corporate giants across the province. Elizabeth leads from the front — ensuring every plate reflects excellence, warmth, and world-class standards.</p>
-        <div class="quote-block reveal reveal-delay-3">
-          <div class="quote-mark">"</div>
-          <div class="quote-text">Catering is not just food — it's the memory we create for every guest. We don't serve meals; we craft unforgettable experiences.</div>
-          <div class="quote-attr">— Elizabeth Segametse Brits, Managing Director</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>-->
 
 <!-- ═══ MISSION & VISION ═══ -->
 <section class="section-full mv-bg">
@@ -531,7 +549,7 @@
     </div>
     <div class="mv-grid">
       <div class="mv-card reveal">
-        <div class="mv-icon-wrap">🎯</div>
+        <div class="mv-icon-wrap"><span class="icon"><i data-lucide="target"></i></span></div>
         <div class="mv-title">Our Mission</div>
         <div class="mv-body">To drive multi-faceted success by prioritising financial health, customer well-being, environmental responsibility, and a culture of fairness and generosity — delivering purpose beyond profit in every event we serve.</div>
         <ul class="mv-list" style="margin-top:1.2rem;">
@@ -541,7 +559,7 @@
         </ul>
       </div>
       <div class="mv-card reveal reveal-delay-1">
-        <div class="mv-icon-wrap">👁</div>
+        <div class="mv-icon-wrap"><span class="icon"><i data-lucide="eye"></i></span></div>
         <div class="mv-title">Our Vision</div>
         <div class="mv-body">To redefine Northern Cape catering through innovation, consistency, and genuine care — becoming the undisputed first choice for every event, large or small.</div>
         <ul class="mv-list" style="margin-top:1.2rem;">
@@ -552,7 +570,7 @@
         </ul>
       </div>
     </div>
-    <div class="commit-card reveal">
+    <!--<div class="commit-card reveal">
       <div class="commit-inner">
         <div>
           <div class="tag"><div class="tag-line"></div> Commitment</div>
@@ -561,13 +579,13 @@
         <div>
           <div class="commit-body">Elizabeth Segametse Brits Trading is synonymous with excellent service delivery. Our MD's decades of hospitality experience drive ongoing improvement, while staff undergo rigorous training — not only in operational duties but also in nutritional knowledge and client communication. We actively employ previously disadvantaged individuals and semi-skilled talents, empowering our local community.</div>
           <div class="commit-pills">
-            <span class="cpill">🖐 Sanitation First</span>
-            <span class="cpill">🎓 Continuous Training</span>
-            <span class="cpill">🌿 Ethical Sourcing</span>
-            <span class="cpill">❤️ Community Upliftment</span>
-            <span class="cpill">✅ HACCP Compliant</span>
+            <span class="cpill"><span class="icon"><i data-lucide="shield-check"></i></span> Sanitation First</span>
+            <span class="cpill"><span class="icon"><i data-lucide="graduation-cap"></i></span> Continuous Training</span>
+            <span class="cpill"><span class="icon"><i data-lucide="leaf"></i></span> Ethical Sourcing</span>
+            <span class="cpill"><span class="icon"><i data-lucide="heart"></i></span> Community Upliftment</span>
+            <span class="cpill"><span class="icon"><i data-lucide="badge-check"></i></span> HACCP Compliant</span>
           </div>
-        </div>
+        </div>-->
       </div>
     </div>
   </div>
@@ -578,7 +596,7 @@
   <div class="section">
     <div class="bee-grid">
       <div class="reveal">
-        <img class="bee-img" src="assets/BEE2.png" alt="Catering kitchen in action">
+        <img class="bee-img" src="assets/eliz.png" alt="Catering kitchen in action">
       </div>
       <div>
         <div class="tag reveal"><div class="tag-line"></div> BEE & Impact</div>
@@ -586,10 +604,10 @@
         <p class="bee-body reveal reveal-delay-2">As a fully BEE Level 1 compliant enterprise, our operational guidelines mirror the principles of the Black Economic Empowerment Act. We are proud to be a catalyst for local economic development — hiring from previously disadvantaged backgrounds, sourcing local produce, and uplifting Postmasburg's entrepreneurial ecosystem.</p>
         <p class="bee-body reveal reveal-delay-2" style="margin-top:1rem;">Our fully-equipped kitchen in Postmasburg uses fresh vegetables, quality meats, and dairy, preparing most dishes from scratch under strict chef-led sanitation standards. We cater for events from 10 to 200+ guests, delivering to offices, home venues, or any external location across the Northern Cape.</p>
         <div class="bee-tags reveal reveal-delay-3">
-          <span class="btag">📅 Book ahead recommended</span>
-          <span class="btag">⏰ Last-minute? 1 day notice</span>
-          <span class="btag">📍 Northern Cape-wide</span>
-          <span class="btag">👥 10–200+ guests</span>
+          <span class="btag"><span class="icon"><i data-lucide="calendar"></i></span> Book ahead recommended</span>
+          <span class="btag"><span class="icon"><i data-lucide="clock"></i></span> Last-minute? 1 day notice</span>
+          <span class="btag"><span class="icon"><i data-lucide="map-pin"></i></span> Northern Cape-wide</span>
+          <span class="btag"><span class="icon"><i data-lucide="users"></i></span> 10–200+ guests</span>
         </div>
         <div class="reveal reveal-delay-3">
           <a href="index.html#contact" class="btn-cta">Partner With Us →</a>
@@ -639,21 +657,21 @@
         <p class="founder-body reveal reveal-delay-2">Our team is our greatest asset. Every staff member — from casual workers to head chefs — receives extensive training in operational duties, health-conscious cooking, and client interaction. We believe in equipping previously disadvantaged individuals with the tools to thrive in hospitality.</p>
         <div class="people-features">
           <div class="pf-item reveal reveal-delay-1">
-            <div class="pf-icon">🎓</div>
+            <div class="pf-icon"><span class="icon"><i data-lucide="graduation-cap"></i></span></div>
             <div>
               <div class="pf-title">Nutrition & Food Safety Education</div>
               <div class="pf-desc">Continuous education on safe food handling, nutritional awareness, and dietary requirements.</div>
             </div>
           </div>
           <div class="pf-item reveal reveal-delay-2">
-            <div class="pf-icon">🤝</div>
+            <div class="pf-icon"><span class="icon"><i data-lucide="handshake"></i></span></div>
             <div>
               <div class="pf-title">Professional Communication</div>
               <div class="pf-desc">Client interaction and interpersonal skills training for every team member on the floor.</div>
             </div>
           </div>
           <div class="pf-item reveal reveal-delay-3">
-            <div class="pf-icon">❤️</div>
+            <div class="pf-icon"><span class="icon"><i data-lucide="heart"></i></span></div>
             <div>
               <div class="pf-title">Respectful Workplace & Growth</div>
               <div class="pf-desc">A culture of dignity, opportunity, and upward mobility for previously disadvantaged individuals.</div>
@@ -665,9 +683,9 @@
         </div>
       </div>
       <div class="people-img-wrap reveal">
-        <img class="people-img" src="assets/economy2.png" alt="Staff training and team">
+        <img class="people-img" src="assets/eli2.png" alt="Staff training and team">
         <div class="people-float-card">
-          <div class="pfc-num">★ 5.0</div>
+          <div class="pfc-num"><span class="icon"><i data-lucide="star"></i></span> 5.0</div>
           <div class="pfc-label">Client satisfaction<br>rating average</div>
         </div>
       </div>
@@ -685,19 +703,19 @@
     </div>
     <div class="media-grid">
       <div class="media-card reveal">
-        <div class="mc-icon-wrap">📰</div>
+        <div class="mc-icon-wrap"><span class="icon"><i data-lucide="newspaper"></i></span></div>
         <div class="mc-title">Business Report Entrepreneurs</div>
         <div class="mc-body">Featured as a trailblazing Northern Cape entrepreneur: "When opportunity came by, businesswoman snapped at the chance and grew a successful company."</div>
         <div class="mc-tag">Feature Story →</div>
       </div>
       <div class="media-card reveal reveal-delay-1">
-        <div class="mc-icon-wrap">📈</div>
+        <div class="mc-icon-wrap"><span class="icon"><i data-lucide="trending-up"></i></span></div>
         <div class="mc-title">Sanlam Alumni Highlight</div>
         <div class="mc-body">After 10+ years as a Sanlam financial adviser in Postmasburg, Elizabeth channelled that expertise and discipline into building a catering legacy that inspires many.</div>
         <div class="mc-tag">Leadership Profile →</div>
       </div>
       <div class="media-card reveal reveal-delay-2">
-        <div class="mc-icon-wrap">🏆</div>
+        <div class="mc-icon-wrap"><span class="icon"><i data-lucide="trophy"></i></span></div>
         <div class="mc-title">Northern Cape Business</div>
         <div class="mc-body">Recognised for outstanding service delivery, consistent excellence, and positive community impact in the catering and hospitality industry.</div>
         <div class="mc-tag">Award Finalist →</div>
@@ -713,8 +731,8 @@
     <h2 class="cta-title reveal">Let's Create Your Next<br><em>Unforgettable Event</em></h2>
     <p class="cta-sub reveal reveal-delay-1">Corporate, private, government — we bring authentic flavours and flawless execution to every occasion across the Northern Cape.</p>
     <div class="cta-btns reveal reveal-delay-2">
-      <a href="index.html#contact" class="btn-cta-white">Get a Quote →</a>
-      <a href="index.html#services" class="btn-cta-ghost-white">Our Services</a>
+      <a href="contact.html" class="btn-cta-white">Get a Quote →</a>
+      <a href="services.html" class="btn-cta-ghost-white">Our Services</a>
     </div>
   </div>
 </section>
@@ -726,16 +744,15 @@
       <div>
         <div class="footer-brand-name">Elizabeth Segametse Brits Trading</div>
         <p class="footer-tagline">Premium catering excellence for government, mining, and corporate clients across the Northern Cape. Driven by passion, served with heart.</p>
-        <div class="bee-badge" style="margin-top:1.5rem;">✦ BEE Level 1 Certified</div>
+        <div class="bee-badge" style="margin-top:1.5rem;"><span class="icon"><i data-lucide="award"></i></span> BEE Level 1 Certified</div>
       </div>
       <div>
         <div class="footer-col-title">Quick Links</div>
         <ul class="footer-links">
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About Us</a></li>
-          <li><a href="index.html#services">Services</a></li>
-          <li><a href="index.html#track">Track Record</a></li>
-          <li><a href="index.html#contact">Contact</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
       <div>
@@ -749,13 +766,16 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 Elizabeth Segametse Brits Trading (Pty) Ltd · Est. 2012 · Postmasburg, Northern Cape</span>
+      <span>© 2026 Elizabeth Segametse Brits Trading (Pty) Ltd · Est. 2012 · Postmasburg, Northern Cape</span>
       <span>Driven by excellence, served with heart.</span>
     </div>
   </div>
 </footer>
 
 <script>
+  // ─── LUCIDE ICONS ───
+  lucide.createIcons();
+
   // ─── CURSOR ───
   const dot = document.getElementById('cursorDot');
   const ring = document.getElementById('cursorRing');
