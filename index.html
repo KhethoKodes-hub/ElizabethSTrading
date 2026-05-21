@@ -35,17 +35,11 @@
     /* ═══ LUCIDE ICONS ═══ */
     .icon { display: inline-flex; align-items: center; justify-content: center; }
     .icon svg { width: 1em; height: 1em; stroke-width: 1.8; vertical-align: middle; }
-    /* tc-icon sizing */
     .tc-icon .icon svg { width: 32px; height: 32px; stroke: var(--warm-brown); }
-    /* media-icon sizing */
     .media-icon .icon svg { width: 44px; height: 44px; stroke: var(--gold-light); stroke-width: 1.5; }
-    /* kf-icon sizing */
     .kf-icon .icon svg { width: 24px; height: 24px; stroke: var(--warm-brown); }
-    /* cd-icon sizing */
     .cd-icon .icon svg { width: 22px; height: 22px; stroke: #fff; stroke-width: 2; }
-    /* badge-pill sizing */
     .badge-pill .icon svg { width: 13px; height: 13px; stroke: var(--mid-brown); stroke-width: 2; }
-    /* footer bee-badge */
     .bee-badge .icon svg { width: 13px; height: 13px; stroke: var(--gold-light); stroke-width: 2; }
 
     /* ═══ CUSTOM CURSOR ═══ */
@@ -108,7 +102,6 @@
       overflow: hidden; display: flex; align-items: center; justify-content: center;
     }
 
-    /* Background slides */
     .hero-slides { position: absolute; inset: 0; z-index: 0; }
     .hero-slide {
       position: absolute; inset: 0;
@@ -118,7 +111,6 @@
     }
     .hero-slide.active { opacity: 1; transform: scale(1); }
 
-    /* ── VIDEO SLIDE (first slide) ── */
     .hero-slide-video {
       position: absolute; inset: 0;
       opacity: 0; transform: scale(1.06);
@@ -132,7 +124,6 @@
       object-position: center;
     }
 
-    /* ── Hero slide background images ── */
     .hero-slide:nth-child(2) {
       background-image:
         linear-gradient(to bottom, rgba(34,20,8,0.45) 0%, rgba(34,20,8,0.3) 50%, rgba(34,20,8,0.55) 100%),
@@ -149,7 +140,6 @@
         url('./assets/cater3.png');
     }
 
-    /* Veil */
     .hero-veil {
       position: absolute; inset: 0; z-index: 1;
       background: linear-gradient(
@@ -164,7 +154,6 @@
       background: linear-gradient(to top, var(--cream) 0%, transparent 100%);
     }
 
-    /* ── STEAM PARTICLES ── */
     .steam-wrap {
       position: absolute; bottom: 100%; left: 50%; transform: translateX(-50%);
       width: 200px; height: 80px; pointer-events: none; z-index: 5;
@@ -191,7 +180,6 @@
       100% { opacity: 0; transform: translateY(-60px) scaleX(2.5) translateX(10px); }
     }
 
-    /* ── HERO CONTENT ── */
     .hero-content {
       position: relative; z-index: 3;
       text-align: center;
@@ -278,7 +266,6 @@
     }
     .btn-hero-ghost:hover { background: rgba(255,255,255,0.2); transform: translateY(-2px); }
 
-    /* Slide dots */
     .hero-indicators {
       position: absolute; bottom: 3rem; left: 50%; transform: translateX(-50%);
       z-index: 4; display: flex; gap: 8px;
@@ -286,7 +273,6 @@
     .hi-dot { width: 22px; height: 2.5px; background: rgba(255,255,255,0.25); border-radius: 2px; cursor: pointer; transition: all 0.4s; }
     .hi-dot.active { width: 42px; background: var(--gold-light); }
 
-    /* Scroll line */
     .scroll-hint {
       position: absolute; bottom: 2.8rem; right: 3rem; z-index: 4;
       display: flex; flex-direction: column; align-items: center; gap: 0.4rem;
@@ -426,8 +412,21 @@
 
     /* ═══ CONTACT ═══ */
     .contact-section {
-      background:
-        url('./assets/contactimg.png') center / cover no-repeat;
+      position: relative;
+      background: url('./assets/contactimg.png') center / cover no-repeat;
+    }
+    /* ── NEW: overlay so text stays readable ── */
+    .contact-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(34,20,8,0.78) 0%, rgba(77,46,20,0.68) 100%);
+      pointer-events: none;
+      z-index: 0;
+    }
+    .contact-section .section-inner {
+      position: relative;
+      z-index: 1;
     }
     .contact-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; align-items: start; }
     .contact-details { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 2.5rem; }
@@ -510,7 +509,7 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="services.html">Services</a></li>
-      <li><a href="contact.html" class="nav-cta">Get a Quote</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
     </ul>
     <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </div>
@@ -624,7 +623,6 @@
     </div>
     <div class="services-grid">
 
-      <!-- Card 1: Seminars & Conferences -->
       <div class="service-card reveal" style="--card-bg: url('./assets/seminar.png');">
         <div class="sc-scrim"></div>
         <div class="sc-icon-wrap">
@@ -635,7 +633,6 @@
         <div class="sc-tag">Most Requested →</div>
       </div>
 
-      <!-- Card 2: Dinners & Banquets -->
       <div class="service-card reveal reveal-delay-1" style="--card-bg: url('./assets/banquet.png');">
         <div class="sc-scrim"></div>
         <div class="sc-icon-wrap">
@@ -646,7 +643,6 @@
         <div class="sc-tag">Premium Service →</div>
       </div>
 
-      <!-- Card 3: Cocktail & Corporate -->
       <div class="service-card reveal reveal-delay-2" style="--card-bg: url('./assets/cocktail.png');">
         <div class="sc-scrim"></div>
         <div class="sc-icon-wrap">
@@ -657,7 +653,6 @@
         <div class="sc-tag">Popular Choice →</div>
       </div>
 
-      <!-- Card 4: Government & Mining Sector -->
       <div class="service-card reveal reveal-delay-1" style="--card-bg: url('./assets/governmentsector.png');">
         <div class="sc-scrim"></div>
         <div class="sc-icon-wrap">
@@ -668,7 +663,6 @@
         <div class="sc-tag">Long-Term Contracts Welcome →</div>
       </div>
 
-      <!-- Card 5: Any Venue, Zero Hassle -->
       <div class="service-card reveal reveal-delay-2" style="--card-bg: url('https://images.pexels.com/photos/958545/pexels-photo-958545.jpeg?auto=compress&cs=tinysrgb&w=800');">
         <div class="sc-scrim"></div>
         <div class="sc-icon-wrap">
@@ -781,9 +775,9 @@
   <div class="section-inner">
     <div class="contact-grid">
       <div>
-        <div class="tag reveal"><div class="tag-line"></div> Get in Touch</div>
-        <h2 class="section-heading reveal reveal-delay-1 typewriter-target">Let's Craft<br><em>Your Event</em></h2>
-        <p class="reveal reveal-delay-2" style="color:#6b4830;font-size:1rem;line-height:1.85;max-width:380px;font-family:'Lora',serif;">Ready to elevate your next function? Reach out and let us create an unforgettable catering experience for your guests.</p>
+        <div class="tag reveal"><div class="tag-line" ></div > Get in Touch</div>
+        <h2 class="section-heading reveal reveal-delay-1 typewriter-target" style="color:white">Let's Craft<br><em >Your Event</em></h2>
+        <p class="reveal reveal-delay-2" style="color:white;font-size:1rem;line-height:1.85;max-width:380px;font-family:'Lora',serif;">Ready to elevate your next function? Reach out and let us create an unforgettable catering experience for your guests.</p>
         <div class="contact-details">
           <div class="cd-item reveal reveal-delay-1">
             <div class="cd-icon"><span class="icon"><i data-lucide="phone"></i></span></div>
@@ -828,10 +822,9 @@
         <div class="footer-col-title">Quick Links</div>
         <ul class="footer-links">
           <li><a href="#home">Home</a></li>
-          <li><a href="#about">About Us</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#track">Track Record</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>
       <div>
@@ -846,7 +839,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2025 Elizabeth Segametse Brits Trading (Pty) Ltd · Est. 2012 · Postmasburg, Northern Cape</span>
+      <span>© 2026 Elizabeth Segametse Brits Trading (Pty) Ltd · Est. 2012 · Postmasburg, Northern Cape</span>
       <span>Driven by excellence, served with heart.</span>
     </div>
   </div>

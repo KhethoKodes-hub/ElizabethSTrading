@@ -48,9 +48,9 @@
     .hero-slides { position: absolute; inset: 0; z-index: 0; }
     .hero-slide { position: absolute; inset: 0; background-size: cover; background-position: center; opacity: 0; transition: opacity 1.8s cubic-bezier(0.4,0,0.2,1), transform 7s ease; transform: scale(1.04); }
     .hero-slide.active { opacity: 1; transform: scale(1); }
-    .hero-slide:nth-child(1) { background-image: url('./assets/hero3.png'); }
-    .hero-slide:nth-child(2) { background-image: url('./assets/hero5.png'); }
-    .hero-slide:nth-child(3) { background-image: url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1600'); }
+    .hero-slide:nth-child(1) { background-image: url('./assets/hero3.png'), url('https://images.unsplash.com/photo-1555244162-803834f70033?w=1600&q=80'); }
+    .hero-slide:nth-child(2) { background-image: url('./assets/hero5.png'), url('https://images.unsplash.com/photo-1467003909585-2f8a72700288?w=1600&q=80'); }
+    .hero-slide:nth-child(3) { background-image: url('./assets/hero2.png'); }
     .hero-veil { position: absolute; inset: 0; z-index: 1; background: linear-gradient(110deg, rgba(28,12,4,0.76) 0%, rgba(46,28,14,0.52) 45%, rgba(90,53,32,0.2) 75%, transparent 100%); }
     .hero-fade-bottom { position: absolute; bottom: 0; left: 0; right: 0; height: 200px; z-index: 2; background: linear-gradient(to top, var(--cream) 0%, transparent 100%); }
     .hero-content { position: relative; z-index: 3; text-align: center; max-width: 860px; padding: 0 2.5rem; }
@@ -92,6 +92,16 @@
     .section-heading em { font-style: italic; color: var(--warm-brown); }
 
     /* ─── INTRO STRIP ─── */
+    .intro-section { position: relative; }
+    .intro-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url('');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.04;
+      pointer-events: none;
+    }
     .intro-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.5rem; margin-top: 4rem; }
     .intro-pill {
       display: flex; align-items: center; gap: 1rem;
@@ -112,15 +122,11 @@
     }
     .services-bg::before {
       content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: url('./assets/hero.png');
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background-image: url('./assets/hero.png'), url('');
       background-size: cover;
       background-position: center;
-      opacity: 0.08;
+      opacity: 0.09;
       pointer-events: none;
     }
     .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; position: relative; z-index: 1; }
@@ -145,6 +151,16 @@
     .sc-tag { display: inline-block; margin-top: 1.4rem; font-size: 0.68rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--warm-brown); transition: color 0.3s; }
 
     /* ─── FLEXIBLE SECTION ─── */
+    .flex-section { position: relative; }
+    .flex-section::before {
+      content: '';
+      position: absolute; inset: 0;
+      background-image: url('');
+      background-size: cover;
+      background-position: center;
+      opacity: 0.04;
+      pointer-events: none;
+    }
     .flex-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
     .flex-img { width: 100%; aspect-ratio: 4/3; object-fit: cover; border-radius: 28px; display: block; }
     .flex-features { display: flex; flex-direction: column; gap: 1.2rem; margin-top: 2rem; }
@@ -161,15 +177,11 @@
     }
     .why-bg::before {
       content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: url('https://images.pexels.com/photos/1351238/pexels-photo-1351238.jpeg?auto=compress&cs=tinysrgb&w=1600');
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background-image: url('./assets/cater2.png');
       background-size: cover;
       background-position: center;
-      opacity: 0.15;
+      opacity: 0.18;
       pointer-events: none;
     }
     .why-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; position: relative; z-index: 1; }
@@ -186,15 +198,11 @@
     }
     .events-bg::before {
       content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background-image: url('https://images.pexels.com/photos/257816/pexels-photo-257816.jpeg?auto=compress&cs=tinysrgb&w=1600');
+      position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+      background-image: url('');
       background-size: cover;
       background-position: center;
-      opacity: 0.08;
+      opacity: 0.07;
       pointer-events: none;
     }
     .events-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; position: relative; z-index: 1; }
@@ -210,7 +218,10 @@
     .events-img { width: 100%; aspect-ratio: 3/4; object-fit: cover; border-radius: 28px; }
 
     /* ─── CTA ─── */
-    .cta-section { background-image: url('https://images.pexels.com/photos/1640777/pexels-photo-1640777.jpeg?auto=compress&cs=tinysrgb&w=1920'); background-size: cover; background-position: center; position: relative; }
+    .cta-section {
+      background-image: url('./assets/cocktail.png'), url('./assets/cocktail.png');
+      background-size: cover; background-position: center; position: relative;
+    }
     .cta-veil { position: absolute; inset: 0; background: linear-gradient(135deg,rgba(28,12,4,0.85),rgba(90,53,32,0.72)); }
     .cta-content { position: relative; z-index: 1; text-align: center; padding: 7rem 2.5rem; }
     .cta-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(2.4rem,4vw,3.8rem); font-weight: 600; color: #fff; line-height: 1.1; margin-bottom: 1.2rem; }
@@ -271,7 +282,7 @@
       <li><a href="index.html">Home</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="services.html" class="active">Services</a></li>
-      <li><a href="contact.html" class="nav-cta">Get a Quote</a></li>
+      <li><a href="contact.html" class="nav-cta">Contact</a></li>
     </ul>
     <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
   </div>
@@ -287,13 +298,13 @@
   <div class="hero-veil"></div>
   <div class="hero-fade-bottom"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow"><div class="hero-eyebrow-dot"></div>One-Stop Culinary Solutions · Northern Cape</div>
+    <!--<div class="hero-eyebrow"><div class="hero-eyebrow-dot"></div>One-Stop Culinary Solutions · Northern Cape</div>-->
     <h1 class="hero-title">Tailored Catering,<br><em>Exceptional</em> Service</h1>
-    <p class="hero-sub">From boardroom lunches to grand government galas — every detail crafted with passion, precision, and premium ingredients.</p>
-    <div class="hero-actions">
+    <!--<p class="hero-sub">From boardroom lunches to grand government galas — every detail crafted with passion, precision, and premium ingredients.</p>-->
+    <!--<div class="hero-actions">
       <a href="services.html" class="btn-primary-hero">Explore Services <i class="fas fa-arrow-right"></i></a>
       <a href="contact.html" class="btn-ghost-hero">Request a Quote</a>
-    </div>
+    </div>-->
   </div>
   <div class="hero-indicators">
     <div class="hi-dot active" onclick="goToSlide(0)"></div>
@@ -301,12 +312,12 @@
     <div class="hi-dot" onclick="goToSlide(2)"></div>
   </div>
   <div class="hero-breadcrumb">
-    <a href="index.html">Home</a><span>›</span><span style="color:rgba(255,255,255,0.7);">Services</span>
+    <!--<a href="index.html">Home</a><span>›</span><span style="color:rgba(255,255,255,0.7);">Services</span>-->
   </div>
 </section>
 
 <!-- ═══ INTRO ═══ -->
-<section>
+<section class="intro-section">
   <div class="section">
     <div style="text-align:center;max-width:680px;margin:0 auto;">
       <div class="tag reveal" style="justify-content:center;"><div class="tag-line"></div> What We Serve <div class="tag-line"></div></div>
@@ -343,7 +354,6 @@
     </div>
     <div class="services-grid">
 
-      <!-- Row 1 -->
       <div class="sc reveal">
         <div class="sc-icon-wrap"><i class="fas fa-chalkboard-user"></i></div>
         <div class="sc-title">Seminars & Conferences</div>
@@ -380,7 +390,6 @@
         <div class="sc-tag">Popular Choice <i class="fas fa-arrow-right"></i></div>
       </div>
 
-      <!-- Row 2 — three individual cards (previously the wide merged card) -->
       <div class="sc reveal">
         <div class="sc-icon-wrap"><i class="fas fa-building"></i></div>
         <div class="sc-title">Government Events</div>
@@ -419,7 +428,7 @@
 </section>
 
 <!-- ═══ FLEXIBLE & FRESH ═══ -->
-<section>
+<section class="flex-section">
   <div class="section">
     <div class="flex-grid">
       <div class="reveal">
@@ -438,7 +447,7 @@
             </div>
           </div>
           <div class="ff-item reveal reveal-delay-2">
-            <div class="ff-icon"><i class="fas fa-chef-hat"></i></div>
+            <div class="ff-icon"><i class="fas fa-hat-chef"></i></div>
             <div>
               <div class="ff-title">Chef-Led Quality Control</div>
               <div class="ff-desc">Strict sanitation protocols, artistic presentation, and quality production checks at every event — from 10 to 200+ guests.</div>
